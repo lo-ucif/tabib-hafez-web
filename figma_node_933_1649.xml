@@ -1,0 +1,400 @@
+<frame id="933:1649" name="landing page " x="-1823" y="0" width="1280" height="5337.5595703125">
+  <frame id="933:1650" name="section 13" x="0" y="0" width="1280" height="578">
+    <frame id="933:1651" name="Container" x="593" y="174" width="603" height="355">
+      <frame id="933:1652" name="Heading 4" x="8" y="0" width="595" height="108">
+        <text id="933:1653" name="أقوى نظام سحابي لإدارة جمعيات ومدارس تحفيظ القرآن " x="171" y="0" width="424" height="108" />
+      </frame>
+      <frame id="933:1654" name="Paragraph" x="8" y="108" width="595" height="132">
+        <text id="933:1655" name="نظام أهل القرآن هو نظام سحابي متكامل .. يمكن بواسط" x="0" y="20" width="595" height="112" />
+      </frame>
+      <instance id="933:1656" name="Frame 1000003337" x="407" y="240" width="196" height="79" />
+      <frame id="933:1657" name="Paragraph" x="176" y="319" width="427" height="36">
+        <text id="933:1658" name="مشروع الطبيب الحافظ قسنطينة | نادي شفاء" x="147" y="8" width="280" height="28" />
+      </frame>
+    </frame>
+    <frame id="933:1659" name="Frame 1000003336" x="0" y="0" width="1280" height="106">
+      <frame id="933:1660" name="Frame 1000003338" x="13" y="13" width="1227" height="79">
+        <instance id="933:1661" name="Frame 1000003337" x="0" y="0" width="283" height="79" />
+        <frame id="933:1662" name="TT" x="417" y="13.5" width="476" height="52">
+          <frame id="933:1663" name="txt2" x="0" y="0" width="119" height="52">
+            <text id="933:1664" name="تواصل معنا" x="7" y="17" width="88" height="18" />
+          </frame>
+          <frame id="933:1665" name="tex3" x="119" y="0" width="119" height="52">
+            <text id="933:1666" name="الأنشطة" x="18.5" y="17" width="66" height="18" />
+          </frame>
+          <frame id="933:1667" name="tex3" x="238" y="0" width="119" height="52">
+            <text id="933:1668" name="المميزات" x="25" y="17" width="68" height="18" />
+          </frame>
+          <frame id="933:1669" name="txt1" x="357" y="0" width="119" height="52">
+            <text id="933:1670" name="الرئيسية" x="27" y="17" width="65" height="18" />
+          </frame>
+        </frame>
+        <rounded-rectangle id="933:1671" name="Cover-الطبيب-الحافظ_2-removebg-preview 2" x="1027" y="9.5" width="166" height="60" />
+      </frame>
+    </frame>
+    <ellipse id="933:1672" name="Ellipse 1" x="842" y="69" width="9" height="9" />
+    <frame id="933:1673" name="Frame 1000009131" x="57" y="174" width="522.5838012695312" height="342">
+      <rounded-rectangle id="933:1674" name="  داشبورد الطالب التفاعلي 2" x="30" y="23" width="427" height="277" />
+      <rounded-rectangle id="933:1675" name="Frame 1000003305 2" x="290" y="0" width="232.5838165283203" height="134" />
+      <rounded-rectangle id="933:1676" name="Frame 1000009130 2" x="0" y="225" width="224" height="117" />
+    </frame>
+  </frame>
+  <frame id="933:1677" name="section 2" x="0" y="579" width="1280" height="1061">
+    <frame id="933:1678" name="Group" x="822" y="193" width="26.074981689453125" height="26.08753776550293" />
+    <frame id="933:1681" name="doctor-svgrepo-com 2" x="814" y="574.00146484375" width="63" height="63" />
+    <frame id="933:1683" name="doctor-svgrepo-com 4" x="1173.9140625" y="833.00146484375" width="166.83393601905345" height="166.83393601905345" />
+    <frame id="933:1685" name="Group" x="77" y="105" width="46.73749923706055" height="46.72489547729492" />
+    <frame id="933:1688" name="Group" x="418" y="959.00244140625" width="46.73749923706055" height="46.72489547729492" />
+    <frame id="933:1691" name="Group" x="337" y="554.004638671875" width="26.074981689453125" height="26.08753776550293" />
+    <frame id="933:1694" name="cards" x="78" y="240" width="1128" height="747">
+      <frame id="933:1695" name="Frame 1000003319" x="0" y="0" width="1128" height="311">
+        <frame id="933:1696" name="card" x="0" y="0" width="362" height="311">
+          <ellipse id="933:1697" name="Ellipse 3" x="42" y="202" width="299" height="71" />
+          <text id="933:1698" name="مؤشرات واضحة لمقدار حفظك ومراجعتك ونسبة حضورك، لتعرف أين وصلت دائمًا." x="45" y="191" width="272" height="94" />
+          <text id="933:1699" name="متابعة التقدّم والإحصائيات" x="44" y="149" width="273" height="28" />
+          <frame id="933:1700" name="meet-now-svgrepo-com 1" x="116" y="12" width="131" height="131" />
+        </frame>
+        <frame id="933:1703" name="card" x="383" y="0" width="362" height="311">
+          <ellipse id="933:1704" name="Ellipse 3" x="42" y="202" width="299" height="71" />
+          <text id="933:1705" name="قاعات مباشرة داخل المنصة للتسميع والمراجعة مع أستاذك، دون الحاجة إلى أي تطبيق خارجي." x="26" y="191" width="309" height="94" />
+          <text id="933:1706" name="تسميع ومراجعة عن بُعد" x="57" y="149" width="247" height="28" />
+          <vector id="933:1707" name="Vector" x="133" y="48" width="97" height="76.0001220703125" />
+        </frame>
+        <frame id="933:1708" name="card" x="766" y="0" width="362" height="311">
+          <ellipse id="933:1709" name="Ellipse 3" x="42" y="202" width="299" height="71" />
+          <text id="933:1710" name="انضم إلى حلقة تناسب مستواك، وتابع جدول الحصص الأسبوعي وأوقات التسميع في مكان واحد." x="26" y="191" width="309" height="94" />
+          <text id="933:1711" name="حلقات وجدول دراسي" x="70" y="149" width="222" height="14" />
+          <frame id="933:1712" name="Group 4" x="134" y="39" width="93.99995422363281" height="70.57124328613281" />
+        </frame>
+      </frame>
+      <frame id="933:1717" name="Group 6" x="0" y="436" width="1128" height="311">
+        <frame id="933:1718" name="card" x="766" y="436" width="362" height="311">
+          <ellipse id="933:1719" name="Ellipse 3" x="42" y="202" width="299" height="71" />
+          <text id="933:1720" name="سجّل حضورك، وقدّم تبريرات الغياب إلكترونياً، واطّلع على سجلّك في أي وقت بشفافية كاملة." x="33" y="191" width="296" height="94" />
+          <text id="933:1721" name="الحضور وتبريرات الغياب" x="63" y="149" width="235" height="28" />
+          <frame id="933:1722" name="mic-solid-svgrepo-com 1" x="132" y="23" width="98" height="98" />
+        </frame>
+        <frame id="933:1730" name="card" x="383" y="436" width="362" height="311">
+          <ellipse id="933:1731" name="Ellipse 3" x="42" y="202" width="299" height="71" />
+          <text id="933:1732" name="امتحانات دورية بتصحيح واضح، وشهادات تُصدر تلقائيًا عند إتمام المحطة بنجاح." x="70" y="191" width="222" height="94" />
+          <text id="933:1733" name="امتحانات وشهادات" x="81" y="149" width="200" height="28" />
+          <frame id="933:1734" name="pdf-file-free-3-svgrepo-com 1" x="138" y="23" width="87" height="87" />
+        </frame>
+        <frame id="933:1742" name="card" x="0" y="436" width="362" height="311">
+          <ellipse id="933:1743" name="Ellipse 3" x="42" y="202" width="299" height="71" />
+          <text id="933:1744" name="تابع إعلانات النادي وفعالياته: ورشات، ندوات، مسابقات قرآنية وتكريمات." x="46" y="191" width="270" height="94" />
+          <text id="933:1745" name="أخبار وفعاليات النادي" x="72" y="149" width="217" height="14" />
+          <frame id="933:1746" name="news-svgrepo-com 1" x="126" y="11" width="110" height="110" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="933:1752" name="Frame 1000003351" x="305" y="55" width="667" height="148">
+      <frame id="933:1753" name="Group 1000009118" x="28.5" y="0" width="610" height="78">
+        <text id="933:1754" name="ماذا تجد في الطبيب الحافظ؟" x="28.5" y="0" width="610" height="50" />
+        <rounded-rectangle id="933:1755" name="Rectangle 39596" x="41.5" y="73" width="591" height="5" />
+      </frame>
+      <frame id="933:1756" name="Group 1000009121" x="0" y="100" width="667" height="48">
+        <text id="933:1757" name="أدوات تنظّم رحلتك مع القرآن، وتوازن بينها وبين دراستك الطبية." x="0" y="100" width="667" height="48" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="933:1758" name="section 3" x="0" y="1641" width="1280" height="309">
+    <rounded-rectangle id="933:1759" name="Rectangle 39597" x="0" y="0" width="1280" height="309" />
+    <frame id="933:1760" name="Group 7" x="258" y="50" width="763" height="210">
+      <text id="933:1761" name="قال رسول الله ﷺ" x="450" y="50" width="381" height="50" />
+      <text id="933:1762" name="« الماهر بالقرآن مع السفرة الكرام البررة، والذي يقرأ القرآن ويتعتع فيه وهو عليه شاق له أجران » متفق عليه" x="258" y="124" width="763" height="136" />
+    </frame>
+  </frame>
+  <frame id="933:1763" name="section 6" x="0" y="1951" width="1280" height="799">
+    <frame id="933:1764" name="Group 1000009120" x="34" y="47.6627197265625" width="1231.8345947265625" height="567.1702270507812">
+      <frame id="933:1765" name="doctor-svgrepo-com 5" x="1136.9140625" y="447.9990234375" width="166.83393601905345" height="166.83393601905345" />
+      <frame id="933:1767" name="Group" x="801" y="176.78631591796875" width="26.074981689453125" height="22.60731315612793" />
+      <frame id="933:1770" name="Group" x="34" y="47.66268986463547" width="46.73749923706055" height="40.49153137207031" />
+      <frame id="933:1773" name="Group" x="360" y="477.4936828613281" width="26.074981689453125" height="22.60731315612793" />
+    </frame>
+    <frame id="933:1776" name="Group 1000009122" x="5" y="521.6898193359375" width="1231.8345947265625" height="640.1430053710938">
+      <frame id="933:1777" name="doctor-svgrepo-com 5" x="1107.9140625" y="994.9990234375" width="166.83393601905345" height="166.83393601905345" />
+      <frame id="933:1779" name="Group" x="772" y="650.8134307861328" width="26.074981689453125" height="22.60731315612793" />
+      <frame id="933:1782" name="Group" x="5" y="521.6898050308228" width="46.73749923706055" height="40.49153137207031" />
+      <frame id="933:1785" name="Group" x="331" y="951.5208129882812" width="26.074981689453125" height="22.60731315612793" />
+    </frame>
+    <frame id="933:1788" name="Group 1000009121" x="297" y="55" width="684" height="159">
+      <frame id="933:1789" name="Frame 1000003352" x="297" y="55" width="684" height="159">
+        <text id="933:1790" name="نشاطاتنا الميدانية" x="0" y="0" width="684" height="50" />
+        <rounded-rectangle id="933:1791" name="Rectangle 39598" x="132" y="77" width="420" height="5" />
+        <text id="933:1792" name="من الحلقات إلى الورشات، نعيش القرآن والطب معًا خارج الشاشة." x="0" y="109" width="684" height="50" />
+      </frame>
+    </frame>
+    <frame id="933:1793" name="Frame 1000003326" x="510" y="870" width="325" height="168" />
+    <frame id="933:1794" name="Frame 1000003333" x="163" y="265" width="953" height="451">
+      <frame id="933:1795" name="صور" x="0" y="0" width="299" height="451">
+        <frame id="933:1796" name="Frame 1000003328" x="0" y="0" width="299" height="471">
+          <rounded-rectangle id="933:1797" name="Quran 1" x="-23" y="0" width="400" height="534" />
+          <rounded-rectangle id="933:1798" name="Rectangle 39788" x="-89" y="381" width="441" height="167" />
+          <frame id="933:1799" name="Frame 1000003330" x="43" y="367" width="234" height="55">
+            <text id="933:1800" name="حلقات الحفظ والمراجعة" x="-30" y="0" width="264" height="19" />
+            <text id="933:1801" name="جلسات أسبوعية لتثبيت المحفوظ بين الطلبة." x="13" y="27" width="221" height="28" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="933:1802" name="صور" x="327" y="0" width="299" height="451">
+        <frame id="933:1803" name="Frame 1000003328" x="0" y="0" width="299" height="471">
+          <rounded-rectangle id="933:1804" name="Medicine 1" x="-8" y="-112" width="411" height="732" />
+          <rounded-rectangle id="933:1805" name="Rectangle 39787" x="183" y="280" width="94" height="33" />
+          <rounded-rectangle id="933:1806" name="Rectangle 39788" x="-89" y="394" width="441" height="154" />
+          <frame id="933:1807" name="Frame 1000003330" x="43" y="367" width="234" height="55">
+            <text id="933:1808" name="ورشات طبية تطبيقية" x="0" y="0" width="234" height="19" />
+            <text id="933:1809" name="مهارات سريرية يقدمها طلبة وأساتذة من الميدان." x="34" y="27" width="200" height="28" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="933:1810" name="صور" x="654" y="0" width="299" height="451">
+        <frame id="933:1811" name="Frame 1000003328" x="0" y="0" width="299" height="471">
+          <rounded-rectangle id="933:1812" name="Image of the Day 1" x="-8" y="-7" width="376" height="501" />
+          <rounded-rectangle id="933:1813" name="Rectangle 39788" x="-89" y="386" width="441" height="162" />
+          <frame id="933:1814" name="Frame 1000003330" x="43" y="367" width="234" height="55">
+            <text id="933:1815" name="لقاءات وتكريمات" x="0" y="0" width="234" height="19" />
+            <text id="933:1816" name="احتفاء بالحافظين والمتميزين في ختام كل محطة." x="34" y="27" width="200" height="28" />
+          </frame>
+          <rounded-rectangle id="933:1817" name="Rectangle 39787" x="37" y="102" width="94" height="33" />
+        </frame>
+      </frame>
+    </frame>
+    <rounded-rectangle id="933:1818" name="Rectangle 39787" x="141" y="399" width="99" height="32" />
+    <frame id="933:1819" name="Frame 1000003350" x="546" y="736" width="186" height="47">
+      <text id="933:1820" name="+7 سنوات من العطاء" x="17" y="14" width="156" height="19" />
+    </frame>
+    <rounded-rectangle id="933:1821" name="Chevron" x="1124" y="737" width="32" height="32" />
+    <rounded-rectangle id="933:1822" name="Chevron" x="157" y="737" width="32" height="32" />
+  </frame>
+  <frame id="933:1823" name="section 4" x="0" y="2751" width="1280" height="665">
+    <frame id="933:1824" name="Frame 1000003321" x="76" y="233" width="1128" height="311">
+      <frame id="933:1825" name="card" x="0" y="0" width="362" height="311">
+        <frame id="933:1826" name="Group" x="117.8857421875" y="15" width="126.75743103027344" height="147" />
+        <text id="933:1887" name="الطالب" x="140" y="177" width="72" height="19" />
+        <text id="933:1888" name="يتابع حفظه ومراجعته، يطلب مواعيد التسميع، ويرى تقدّمه وحضوره وشهاداته." x="31" y="220" width="300" height="67" />
+      </frame>
+      <frame id="933:1889" name="card" x="383" y="0" width="362" height="311">
+        <frame id="933:1890" name="Group" x="116.789794921875" y="15" width="128.9512481689453" height="147" />
+        <text id="933:1932" name="الأستاذ" x="117" y="177" width="95" height="19" />
+        <text id="933:1933" name="يدير حلقته، يقيّم الحفظ والتجويد، يرصد الحضور، ويوجّه طلابه بخطة أسبوعية." x="31" y="220" width="300" height="67" />
+      </frame>
+      <frame id="933:1934" name="card" x="766" y="0" width="362" height="311">
+        <frame id="933:1935" name="Group 9" x="118.314453125" y="17" width="125.89777374267578" height="146" />
+        <text id="933:2051" name="المشرف والإدارة" x="83" y="177" width="196" height="19" />
+        <text id="933:2052" name="يعتمد التسجيلات، ينظّم الحلقات والأساتذة، ويتابع أداء المنصة عبر تقارير شاملة." x="31" y="220" width="300" height="67" />
+      </frame>
+    </frame>
+    <frame id="933:2053" name="Group 1000009120" x="56" y="66" width="1231.8345947265625" height="559.8329467773438">
+      <frame id="933:2054" name="doctor-svgrepo-com 5" x="1158.9140625" y="458.9990234375" width="166.83393601905345" height="166.83393601905345" />
+      <frame id="933:2056" name="Group" x="823" y="215.001220703125" width="26.074981689453125" height="26.08753776550293" />
+      <frame id="933:2059" name="Group" x="56" y="66" width="46.73749923706055" height="46.72489547729492" />
+      <frame id="933:2062" name="Group" x="382" y="562.000244140625" width="26.074981689453125" height="26.08753776550293" />
+    </frame>
+    <frame id="933:2065" name="Group 1000009121" x="252" y="55" width="775" height="149">
+      <text id="933:2066" name="منظومة واحدة لكل الأدوار" x="352" y="55" width="576" height="63" />
+      <text id="933:2067" name="لكل مستخدم لوحته الخاصة وأدواته التي تناسب مهمّته في رحلة التحفيظ." x="252" y="154" width="775" height="50" />
+    </frame>
+    <rounded-rectangle id="933:2068" name="Rectangle 39598" x="358" y="121" width="562" height="5" />
+  </frame>
+  <frame id="933:2069" name="section phne" x="0" y="3417" width="1280" height="544">
+    <frame id="933:2070" name="section 14" x="-2" y="86" width="1280" height="369">
+      <rounded-rectangle id="933:2071" name="Rectangle 39597" x="0" y="0" width="1280" height="369" />
+      <frame id="933:2072" name="Group 1000009123" x="1185.8336181640625" y="36" width="1231.8345947265625" height="559.8329467773438">
+        <frame id="933:2073" name="doctor-svgrepo-com 5" x="82.9195556640625" y="428.9990234375" width="166.83393601905345" height="166.833936019053" />
+        <frame id="933:2075" name="Group" x="418.8336181640625" y="185.001220703125" width="26.074981689453125" height="26.08753776550293" />
+        <frame id="933:2078" name="Group" x="1185.8336181640625" y="36" width="46.73749923706055" height="46.72489547729492" />
+        <frame id="933:2081" name="Group" x="859.8336181640625" y="532.000244140625" width="26.074981689453125" height="26.08753776550293" />
+      </frame>
+      <frame id="933:2084" name="Container" x="-157" y="-509" width="980.6666870117188" height="136">
+        <frame id="933:2085" name="Container" x="0" y="0" width="490.3333435058594" height="136">
+          <frame id="933:2086" name="Paragraph" x="16" y="0" width="474.3333435058594" height="36">
+            <text id="933:2087" name="ابدأ رحلتك مع نظام أهل القرآن" x="0" y="0" width="358" height="36" />
+          </frame>
+          <frame id="933:2088" name="Paragraph" x="16" y="36" width="474.3333435058594" height="36">
+            <text id="933:2089" name="14 يوم لتجربة كل ميزات نظام أهل القرآن" x="0" y="8" width="226" height="28" />
+          </frame>
+          <frame id="933:2090" name="Container" x="16" y="72" width="474.3333435058594" height="64">
+            <frame id="933:2091" name="Link" x="0" y="24" width="153" height="40">
+              <frame id="933:2092" name="Paragraph" x="40" y="10" width="73" height="20">
+                <text id="933:2093" name="ابدأ الان مجانا" x="0" y="0" width="73" height="20" />
+              </frame>
+            </frame>
+            <frame id="933:2094" name="Link" x="169" y="24" width="152" height="40">
+              <text id="933:2095" name="تجربة المنصة" x="40" y="10" width="72" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="933:2096" name="Container" x="490.3333435058594" y="0" width="490.3333435058594" height="136">
+          <frame id="933:2097" name="Image" x="50.16667175292969" y="-204" width="374" height="544" />
+        </frame>
+      </frame>
+      <frame id="933:2098" name="Container" x="106" y="71" width="1045" height="232">
+        <frame id="933:2099" name="Container" x="32" y="48" width="980.6666870117188" height="136">
+          <frame id="933:2100" name="Container" x="0.333343505859375" y="0" width="490.3333435058594" height="136" />
+          <frame id="933:2101" name="Container" x="490.66668701171875" y="0" width="490" height="165">
+            <frame id="933:2102" name="Paragraph" x="16" y="0" width="474" height="36">
+              <text id="933:2103" name="ابدأ رحلتك بين العلم والقرآن" x="0" y="0" width="421" height="36" />
+            </frame>
+            <frame id="933:2104" name="Paragraph" x="16" y="43" width="474" height="36">
+              <text id="933:2105" name="حمّل تطبيق الطبيب الحافظ، وتابع حلقتك وتسميعك وتقدّمك أينما كنت." x="0" y="8" width="396" height="23" />
+            </frame>
+            <instance id="933:2106" name="Frame 1000003337" x="16" y="86" width="428" height="79" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="933:2107" name="Frame 1000009177" x="192" y="3" width="355" height="537.3073120117188">
+      <rounded-rectangle id="933:2108" name="Free Transparent iPhone 17 Mockup (Mockuuups Studio)" x="0" y="0" width="200.1750030517578" height="413.796875" />
+      <rounded-rectangle id="933:2109" name="Free Transparent iPhone 17 Mockup (Mockuuups Studio)" x="154.94264221191406" y="123.81705474853516" width="200.0266876220703" height="413.49029541015625" />
+    </frame>
+  </frame>
+  <frame id="933:2110" name="section 11" x="0" y="3962" width="1280" height="937">
+    <frame id="933:2111" name="Group" x="1120" y="168.31692504882812" width="46.73749923706055" height="50.09293746948242" />
+    <frame id="933:2114" name="Footer UI" x="0" y="204" width="1341" height="864.9942016601562">
+      <frame id="933:2115" name="Group 1139" x="0" y="204" width="1341" height="704">
+        <vector id="933:2116" name="Rectangle 339" x="0" y="908" width="1341" height="605" />
+        <frame id="933:2117" name="Mask Group" x="0" y="303" width="1341" height="605">
+          <vector id="933:2118" name="Rectangle 340" x="0" y="908" width="1341" height="605" />
+          <frame id="933:2119" name="Group 1137" x="-199.67340087890625" y="1086.30029296875" width="2202.017578125" height="1266.13037109375">
+            <frame id="933:2120" name="Group" x="641.7363891601562" y="231.95068359375" width="513.555855255073" height="714.0426089870898">
+              <vector id="933:2121" name="Vector" x="641.7363891601562" y="231.95068359375" width="513.555855255073" height="714.0426089870898" />
+            </frame>
+            <frame id="933:2122" name="Group" x="-199.67340350151062" y="-179.830078125" width="2202.0175922082967" height="1266.1303992453431">
+              <vector id="933:2123" name="Vector" x="-199.67340963490992" y="-179.83006501907403" width="2202.0175922082967" height="1266.1303992453431" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="933:2124" name="Form" x="643.51708984375" y="204" width="574.2778930664062" height="605">
+          <rounded-rectangle id="933:2125" name="Rectangle 71" x="643.51708984375" y="204" width="574.2778930664062" height="605" />
+          <frame id="933:2126" name="Input/Normal" x="684.2460136413574" y="254" width="492.8200378417969" height="60">
+            <rounded-rectangle id="933:2127" name="Rectangle 23" x="0" y="0" width="492.8200378417969" height="60" />
+            <text id="933:2128" name="الاسم الكامل" x="25.45557975769043" y="18.89471435546875" width="443.9690856933594" height="23.157894134521484" />
+          </frame>
+          <frame id="933:2129" name="Input/Normal" x="684.2460136413574" y="414" width="492.8200378417969" height="60">
+            <rounded-rectangle id="933:2130" name="Rectangle 23" x="0" y="0" width="492.8200378417969" height="60" />
+            <text id="933:2131" name="الموضوع" x="25.45557975769043" y="18.89453125" width="443.9690856933594" height="23.157894134521484" />
+          </frame>
+          <frame id="933:2132" name="Input/Normal" x="684.2460136413574" y="334" width="492.8200378417969" height="60">
+            <rounded-rectangle id="933:2133" name="Rectangle 23" x="0" y="0" width="492.8200378417969" height="60" />
+            <text id="933:2134" name="البريد الالكتروني" x="25.45557975769043" y="18.89471435546875" width="443.9690856933594" height="23.157894134521484" />
+          </frame>
+          <frame id="933:2135" name="Input/Normal" x="684.2460136413574" y="494" width="492.8200378417969" height="165">
+            <rounded-rectangle id="933:2136" name="Rectangle 23" x="0" y="0" width="492.8200378417969" height="165" />
+            <text id="933:2137" name="الرسالة" x="25.45557975769043" y="18.89453125" width="443.9690856933594" height="23.157894134521484" />
+          </frame>
+          <frame id="933:2138" name="Frame 4" x="684.2460136413574" y="725" width="199.57174682617188" height="51">
+            <text id="933:2139" name="ارسل الان" x="50.28587341308594" y="13.5" width="99" height="24" />
+          </frame>
+        </frame>
+      </frame>
+      <vector id="933:2140" name="Logo LIFT" x="124.2423095703125" y="1017.40625" width="82.06878662109375" height="51.58796691894531" />
+    </frame>
+    <frame id="933:2141" name="Group 1135" x="709" y="671" width="471" height="24.82716941833496">
+      <rounded-rectangle id="933:2142" name="Rectangle 23" x="1158" y="672.0720748901367" width="22" height="23.585811614990234" />
+      <text id="933:2143" name="أوافق على الشروط وسياسة الخصوصية" x="709" y="670.9999923706055" width="436.0233459472656" height="24.82716941833496" />
+    </frame>
+    <frame id="933:2144" name="Group 1000009121" x="116" y="506" width="488" height="163">
+      <text id="933:2145" name="هل لديك سؤال عن التسجيل أو الحلقات أو التطبيق؟ اكتب لنا وسيردّ عليك فريق المشروع في أقرب وقت." x="116" y="506" width="488" height="163" />
+    </frame>
+    <frame id="933:2146" name="Group 1000009122" x="360" y="55" width="558" height="151">
+      <text id="933:2147" name="تواصل معنا" x="515" y="55" width="248" height="50" />
+      <rounded-rectangle id="933:2148" name="Rectangle 39598" x="523" y="118" width="234" height="5" />
+      <text id="933:2149" name="لأي استفسار أو اقتراح، يسعدنا أن نسمع منك." x="360" y="156" width="558" height="50" />
+    </frame>
+    <frame id="933:2150" name="Group 1000009123" x="-279" y="3.2165088653564453" width="905.8346557617188" height="410.61541748046875">
+      <frame id="933:2151" name="doctor-svgrepo-com 5" x="497.9140625" y="246.99804878234863" width="166.83393601905345" height="166.833936019053" />
+      <frame id="933:2153" name="Group" x="162" y="3.2165088951587677" width="26.074981689453125" height="27.967988967895508" />
+      <frame id="933:2156" name="Group" x="-279" y="375.2280445098877" width="26.074981689453125" height="27.967988967895508" />
+    </frame>
+  </frame>
+  <frame id="933:2159" name="Footer / 1 /" x="0" y="4900" width="1280" height="437.559814453125">
+    <frame id="933:2160" name="Container" x="40" y="80" width="1200" height="337.559814453125">
+      <frame id="933:2161" name="Content" x="0" y="0" width="1200" height="276">
+        <frame id="933:2162" name="Links" x="0" y="0" width="640" height="276">
+          <frame id="933:2163" name="Column" x="0" y="0" width="300" height="260">
+            <text id="933:2164" name="تابعنا" x="0" y="0" width="300" height="30" />
+            <frame id="933:2165" name="Social Links" x="0" y="46" width="300" height="138">
+              <frame id="933:2166" name="Link" x="0" y="0" width="300" height="46">
+                <text id="933:2167" name="فيسبوك" x="196" y="8" width="68" height="30" />
+                <instance id="933:2168" name="Facebook" x="276" y="11" width="24" height="24" />
+              </frame>
+              <frame id="933:2169" name="Link" x="0" y="46" width="300" height="46">
+                <text id="933:2170" name="إنستغرام" x="197" y="8" width="67" height="30" />
+                <instance id="933:2171" name="Instagram" x="276" y="11" width="24" height="24" />
+              </frame>
+              <frame id="933:2172" name="Link" x="0" y="92" width="300" height="46">
+                <text id="933:2173" name="X" x="251" y="8" width="13" height="30" />
+                <instance id="933:2174" name="X" x="276" y="11" width="24" height="24" />
+              </frame>
+            </frame>
+            <rounded-rectangle id="933:2175" name="Cover-الطبيب-الحافظ_2-removebg-preview 2" x="134" y="200" width="166" height="60" />
+          </frame>
+          <frame id="933:2176" name="Column" x="340" y="0" width="300" height="276">
+            <text id="933:2177" name="روابط سريعة" x="0" y="0" width="300" height="30" />
+            <frame id="933:2178" name="Footer Links" x="0" y="46" width="300" height="230">
+              <frame id="933:2179" name="Link" x="0" y="0" width="300" height="46">
+                <text id="933:2180" name="عن المنصة" x="0" y="8" width="300" height="30" />
+              </frame>
+              <frame id="933:2181" name="Link" x="0" y="46" width="300" height="46">
+                <text id="933:2182" name="ماذا نقدم" x="0" y="8" width="300" height="30" />
+              </frame>
+              <frame id="933:2183" name="Link" x="0" y="92" width="300" height="46">
+                <text id="933:2184" name="نشاطاتنا الميدانية" x="0" y="8" width="300" height="30" />
+              </frame>
+              <frame id="933:2185" name="Link" x="0" y="138" width="300" height="46">
+                <text id="933:2186" name="تطبيق الهاتف" x="0" y="8" width="300" height="30" />
+              </frame>
+              <frame id="933:2187" name="Link" x="0" y="184" width="300" height="46">
+                <text id="933:2188" name="تواصل معنا" x="0" y="8" width="300" height="30" />
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+        <frame id="933:2189" name="Newsletter" x="784" y="66" width="376" height="144">
+          <frame id="933:2190" name="Group 1" x="441" y="0" width="59" height="58" hidden="true" />
+          <text id="933:2224" name="مشروع الطبيب الحافظ مديرية الأنشطة الثقافية والعلمية والرياضية جامعة قسنطينة 3" x="0" y="0" width="376" height="144" />
+        </frame>
+      </frame>
+      <frame id="933:2225" name="Credits" x="0" y="296" width="1200" height="41.55980682373047">
+        <line id="933:2226" name="Divider" x="0" y="0" width="1200" height="0" />
+        <frame id="933:2227" name="Row" x="0" y="10" width="1200" height="31.55980682373047">
+          <frame id="933:2228" name="Frame 1000009124" x="0" y="0" width="207" height="31.55980682373047">
+            <frame id="933:2229" name="Frame 1000009141" x="0" y="0" width="37" height="31.55980682373047">
+              <frame id="933:2230" name="Frame 1000009036" x="22.19048500061035" y="0" width="3.0297417640686035" height="31.55980682373047">
+                <vector id="933:2231" name="ا" x="0.007232122588902712" y="0" width="3.015289068222046" height="7.126415252685547" />
+                <vector id="933:2232" name="ا" x="0.8659201264381409" y="26.005390167236328" width="1.298020839691162" height="5.554526329040527" />
+              </frame>
+              <vector id="933:2233" name="فظ" x="0" y="4.53291130065918" width="20.69744873046875" height="23.1412296295166" />
+              <vector id="933:2234" name="ح" x="21.29693603515625" y="7.167858600616455" width="12.965154647827148" height="19.895465850830078" />
+              <frame id="933:2235" name="Frame 1000009137" x="22.695466995239258" y="16.142728805541992" width="14.304544448852539" height="10.872610092163086" />
+            </frame>
+            <text id="933:2245" name="من إنجاز منصة حافظ" x="47" y="5.559806823730469" width="160" height="26" />
+          </frame>
+          <text id="933:2246" name="© 2026 الطبيب الحافظ – نادي شفاء. جميع الحقوق محفوظة." x="805" y="3.7799034118652344" width="395" height="24" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="933:2247" name="logo 3" x="1074" y="38" width="146" height="88">
+      <frame id="933:2248" name="&amp;lt;Group&amp;gt;" x="31.68946075439453" y="30.31012535095215" width="85.77799987792969" height="36.703670501708984">
+        <frame id="933:2249" name="&amp;lt;Group&amp;gt;" x="39.74711894989014" y="30.310123391444677" width="63.52924728393555" height="33.29969787597656">
+          <frame id="933:2250" name="&amp;lt;Group&amp;gt; Image" x="39.74711894989014" y="30.310123391444677" width="63.52924728393555" height="33.29969787597656">
+            <rounded-rectangle id="933:2251" name="&amp;lt;Group&amp;gt; Image" x="39.74711894989014" y="30.310123391444677" width="63.52924728393555" height="33.29969787597656" />
+          </frame>
+        </frame>
+        <frame id="933:2252" name="&amp;lt;Group&amp;gt; Image" x="31.6894580121359" y="65.26740074157715" width="85.77799987792969" height="1.7463840246200562">
+          <rounded-rectangle id="933:2253" name="&amp;lt;Group&amp;gt; Image" x="31.6894580121359" y="65.26740074157715" width="85.77799987792969" height="1.7463840246200562" />
+        </frame>
+      </frame>
+      <frame id="933:2254" name="نادي شفاء" x="48.740577697753906" y="65.36113739013672" width="53.49224853515625" height="15.663190841674805">
+        <text id="933:2255" name="نادي شفاء" x="48.740577697753906" y="65.36113739013672" width="53.49224853515625" height="15.663190841674805" />
+      </frame>
+      <frame id="933:2256" name="Shifaa-club Image" x="54.26894760131836" y="82.05045318603516" width="40.709228515625" height="5.9495463371276855">
+        <rounded-rectangle id="933:2257" name="Shifaa-club Image" x="54.26894760131836" y="82.05045318603516" width="40.709228515625" height="5.9495463371276855" />
+      </frame>
+      <frame id="933:2258" name="&amp;lt;Path&amp;gt; + &amp;lt;Path&amp;gt; + &amp;lt;Path&amp;gt; + &amp;lt;Path&amp;gt; + &amp;lt;Path&amp;gt; + &amp;lt;Path&amp;gt; Image" x="70.32413482666016" y="0" width="32.95222854614258" height="37.50285720825195">
+        <rounded-rectangle id="933:2259" name="&amp;lt;Path&amp;gt; + &amp;lt;Path&amp;gt; + &amp;lt;Path&amp;gt; + &amp;lt;Path&amp;gt; + &amp;lt;Path&amp;gt; + &amp;lt;Path&amp;gt; Image" x="70.32413482666016" y="0" width="32.95222854614258" height="37.50285720825195" />
+      </frame>
+    </frame>
+  </frame>
+</frame>
