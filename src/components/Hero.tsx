@@ -9,10 +9,10 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
   return (
     <section id="home" className="relative w-full bg-white pt-6 pb-12 sm:pt-10 sm:pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
-        
+
         {/* In Figma Mobile Mode (node 942:5416): Content Container is on top */}
         <div className="w-full lg:w-[50%] flex flex-col items-center lg:items-start text-center lg:text-right space-y-5 sm:space-y-6">
-          
+
           {/* Main Title */}
           <h1 className="text-2xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-[#1a5a81] leading-[1.35] tracking-wide">
             سماعة في العنق...وقران في القلب
@@ -42,15 +42,33 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
         </div>
 
         {/* In Figma Mobile Mode (node 942:5416): Illustration is on bottom (w: 321px, h: 210px) */}
-        <div className="w-full lg:w-[50%] flex justify-center items-center pt-2 lg:pt-0">
-          <div className="relative w-[321px] sm:max-w-[480px] lg:max-w-[574px] group">
+        <div className="w-full lg:w-1/2 flex justify-center items-center pt-2 lg:pt-0">
+          <div
+            className="
+              relative
+              w-[321px]
+              h-[210px]
+              lg:w-[574px]
+              lg:h-[376px]
+              group
+            "
+          >
             <img
               src={assets.imgFrame10000091311}
               alt="لوحة تحكم الطبيب الحافظ"
-              className="w-full h-auto object-contain drop-shadow-xl transition-transform duration-500 hover:scale-[1.02]"
+              className="
+                w-full
+                h-full
+                object-contain
+                drop-shadow-xl
+                transition-transform
+                duration-500
+                hover:scale-[1.02]
+              "
             />
           </div>
         </div>
+
 
       </div>
     </section>

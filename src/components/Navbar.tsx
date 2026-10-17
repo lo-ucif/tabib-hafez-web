@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { assets } from '../assets-map'
 
 interface NavbarProps {
@@ -7,6 +7,47 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('home')
+
+  const navItems = [
+    { id: 'home', label: 'الرئيسية' },
+    { id: 'features', label: 'المميزات' },
+    { id: 'activities', label: 'الأنشطة' },
+    { id: 'roles', label: 'الأدوار' },
+    { id: 'contact', label: 'تواصل معنا' },
+  ]
+
+  // Track active section as user scrolls
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 120
+      for (const item of [...navItems].reverse()) {
+        const el = document.getElementById(item.id)
+        if (el) {
+          const top = el.offsetTop
+          if (scrollPosition >= top) {
+            setActiveSection(item.id)
+            break
+          }
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollToSection = (id: string, e: React.MouseEvent) => {
+    e.preventDefault()
+    setActiveSection(id)
+    setMobileMenuOpen(false)
+    const el = document.getElementById(id)
+    if (el) {
+      const yOffset = -70
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset
+      window.scrollTo({ top: y, behavior: 'smooth' })
+    }
+  }
 
   return (
     <header className="w-full max-w-full bg-white sticky top-0 z-50 border-b border-slate-100 shadow-sm transition-all duration-300 overflow-x-hidden">
@@ -14,7 +55,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
         
         {/* Right side in RTL: Brand Logo */}
         <div className="flex items-center gap-4">
-          <a href="#" className="h-[34px] w-[94px] md:h-[60px] md:w-[166px] relative flex items-center">
+          <a
+            href="#home"
+            onClick={(e) => scrollToSection('home', e)}
+            className="h-[34px] w-[94px] md:h-[60px] md:w-[166px] relative flex items-center cursor-pointer"
+          >
             <img
               src={assets.imgCover2RemovebgPreview2}
               alt="شعار الطبيب الحافظ"
@@ -23,48 +68,33 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
           </a>
         </div>
 
-        {/* Center: Navigation Links (Desktop) */}
+        {/* Center: Navigation Links (Desktop PC mode) */}
         <nav className="hidden md:flex items-center gap-1 lg:gap-2">
-          {/* Home Link (Active) */}
-          <a
-            href="#home"
-            className="flex flex-col items-center justify-center px-4 py-2 text-[#e2a72b] font-semibold text-[18px] transition hover:text-[#d3951f]"
-          >
-            <span>الرئيسية</span>
-            <span className="w-2 h-2 mt-1 rounded-full bg-[#e2a72b]" />
-          </a>
-
-          {/* Features */}
-          <a
-            href="#features"
-            className="px-4 py-2 text-[#1a5a81] hover:text-[#48a6a7] font-medium text-[18px] transition"
-          >
-            المميزات
-          </a>
-
-          {/* Activities */}
-          <a
-            href="#activities"
-            className="px-4 py-2 text-[#1a5a81] hover:text-[#48a6a7] font-medium text-[18px] transition"
-          >
-            الأنشطة
-          </a>
-
-          {/* Roles */}
-          <a
-            href="#roles"
-            className="px-4 py-2 text-[#1a5a81] hover:text-[#48a6a7] font-medium text-[18px] transition"
-          >
-            الأدوار
-          </a>
-
-          {/* Contact */}
-          <a
-            href="#contact"
-            className="px-4 py-2 text-[#1a5a81] hover:text-[#48a6a7] font-medium text-[18px] transition"
-          >
-            تواصل معنا
-          </a>
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id
+            return (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => scrollToSection(item.id, e)}
+                className={`flex flex-col items-center justify-center px-4 py-2 text-[18px] transition-all cursor-pointer group select-none ${
+                  isActive
+                    ? 'text-[#e2a72b] font-semibold'
+                    : 'text-[#1a5a81] hover:text-[#48a6a7] font-medium'
+                }`}
+              >
+                <span>{item.label}</span>
+                {/* Active indicator dot like in Figma */}
+                <span
+                  className={`w-2 h-2 mt-1 rounded-full transition-all duration-300 ${
+                    isActive
+                      ? 'bg-[#e2a72b] opacity-100 scale-100'
+                      : 'bg-transparent opacity-0 scale-50'
+                  }`}
+                />
+              </a>
+            )
+          })}
         </nav>
 
         {/* Left side in RTL: Login Action (Desktop) */}
@@ -100,42 +130,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden w-full max-w-full bg-white border-b border-slate-200 px-4 py-4 flex flex-col gap-2.5 shadow-lg animate-in slide-in-from-top duration-200 overflow-hidden">
-          <a
-            href="#home"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-[#e2a72b] font-semibold text-base py-2 border-b border-slate-100 flex items-center justify-between"
-          >
-            <span>الرئيسية</span>
-            <span className="w-2 h-2 rounded-full bg-[#e2a72b]" />
-          </a>
-          <a
-            href="#features"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-[#1a5a81] font-medium text-base py-2 border-b border-slate-100"
-          >
-            المميزات
-          </a>
-          <a
-            href="#activities"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-[#1a5a81] font-medium text-base py-2 border-b border-slate-100"
-          >
-            الأنشطة
-          </a>
-          <a
-            href="#roles"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-[#1a5a81] font-medium text-base py-2 border-b border-slate-100"
-          >
-            الأدوار
-          </a>
-          <a
-            href="#contact"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-[#1a5a81] font-medium text-base py-2 border-b border-slate-100"
-          >
-            تواصل معنا
-          </a>
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id
+            return (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => scrollToSection(item.id, e)}
+                className={`text-base py-2 border-b border-slate-100 flex items-center justify-between transition-colors ${
+                  isActive
+                    ? 'text-[#e2a72b] font-semibold'
+                    : 'text-[#1a5a81] hover:text-[#48a6a7] font-medium'
+                }`}
+              >
+                <span>{item.label}</span>
+                {isActive && <span className="w-2 h-2 rounded-full bg-[#e2a72b]" />}
+              </a>
+            )
+          })}
           <button
             onClick={() => {
               setMobileMenuOpen(false)
