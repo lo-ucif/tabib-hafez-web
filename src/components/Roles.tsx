@@ -1,5 +1,7 @@
 import React from 'react'
-import { assets } from '../assets-map'
+import studentImg from '../assets/student.png'
+import teacherImg from '../assets/teacher.png'
+import supervisorImg from '../assets/supervisor.png'
 
 export const Roles: React.FC = () => {
   return (
@@ -24,15 +26,12 @@ export const Roles: React.FC = () => {
           <div className="group relative w-full max-w-[335px] sm:max-w-[362px] min-h-[311px] sm:h-[330px] bg-white rounded-[16px] border border-slate-100 shadow-[0px_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0px_12px_32px_rgba(72,166,167,0.15)] hover:-translate-y-2 transition-all duration-300 flex flex-col items-center p-5 sm:p-6 text-center justify-between overflow-hidden">
             
             {/* Character Graphic Container */}
-            <div className="relative w-[110px] sm:w-[130px] h-[110px] sm:h-[130px] mt-1 group-hover:scale-105 transition-transform duration-300">
-              <div className="absolute inset-0">
-                <img alt="Vector 1" className="absolute inset-0 size-full object-contain" src={assets.imgVector1} />
-                <img alt="Vector 2" className="absolute inset-0 size-full object-contain" src={assets.imgVector2} />
-                <img alt="Vector 3" className="absolute inset-0 size-full object-contain" src={assets.imgVector3} />
-                <img alt="Group 20" className="absolute inset-0 size-full object-contain" src={assets.imgGroup20} />
-                <img alt="Group 21" className="absolute inset-0 size-full object-contain" src={assets.imgGroup21} />
-                <img alt="Group 19" className="absolute inset-0 size-full object-contain" src={assets.imgGroup19} />
-              </div>
+            <div className="relative w-[110px] sm:w-[130px] h-[110px] sm:h-[130px] mt-1 group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+              <img
+                src={studentImg}
+                alt="الطالب"
+                className="w-full h-full object-contain drop-shadow-sm select-none"
+              />
             </div>
 
             {/* Title */}
@@ -53,15 +52,12 @@ export const Roles: React.FC = () => {
           <div className="group relative w-full max-w-[335px] sm:max-w-[362px] min-h-[311px] sm:h-[330px] bg-white rounded-[16px] border border-slate-100 shadow-[0px_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0px_12px_32px_rgba(72,166,167,0.15)] hover:-translate-y-2 transition-all duration-300 flex flex-col items-center p-5 sm:p-6 text-center justify-between overflow-hidden">
             
             {/* Character Graphic Container */}
-            <div className="relative w-[110px] sm:w-[130px] h-[110px] sm:h-[130px] mt-1 group-hover:scale-105 transition-transform duration-300">
-              <div className="absolute inset-0">
-                <img alt="Vector 7" className="absolute inset-0 size-full object-contain" src={assets.imgVector7} />
-                <img alt="Vector 8" className="absolute inset-0 size-full object-contain" src={assets.imgVector8} />
-                <img alt="Vector 9" className="absolute inset-0 size-full object-contain" src={assets.imgVector9} />
-                <img alt="Group 22" className="absolute inset-0 size-full object-contain" src={assets.imgGroup22} />
-                <img alt="Group 23" className="absolute inset-0 size-full object-contain" src={assets.imgGroup23} />
-                <img alt="Group 24" className="absolute inset-0 size-full object-contain" src={assets.imgGroup24} />
-              </div>
+            <div className="relative w-[110px] sm:w-[130px] h-[110px] sm:h-[130px] mt-1 group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+              <img
+                src={teacherImg}
+                alt="الأستاذ"
+                className="w-full h-full object-contain drop-shadow-sm select-none"
+              />
             </div>
 
             {/* Title */}
@@ -82,14 +78,12 @@ export const Roles: React.FC = () => {
           <div className="group relative w-full max-w-[335px] sm:max-w-[362px] min-h-[311px] sm:h-[330px] bg-white rounded-[16px] border border-slate-100 shadow-[0px_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0px_12px_32px_rgba(72,166,167,0.15)] hover:-translate-y-2 transition-all duration-300 flex flex-col items-center p-5 sm:p-6 text-center justify-between overflow-hidden">
             
             {/* Character Graphic Container */}
-            <div className="relative w-[110px] sm:w-[130px] h-[110px] sm:h-[130px] mt-1 group-hover:scale-105 transition-transform duration-300">
-              <div className="absolute inset-0">
-                <img alt="Vector 14" className="absolute inset-0 size-full object-contain" src={assets.imgVector14} />
-                <img alt="Vector 15" className="absolute inset-0 size-full object-contain" src={assets.imgVector15} />
-                <img alt="Group 29" className="absolute inset-0 size-full object-contain" src={assets.imgGroup29} />
-                <img alt="Group 30" className="absolute inset-0 size-full object-contain" src={assets.imgGroup30} />
-                <img alt="Group 34" className="absolute inset-0 size-full object-contain" src={assets.imgGroup34} />
-              </div>
+            <div className="relative w-[110px] sm:w-[130px] h-[110px] sm:h-[130px] mt-1 group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+              <img
+                src={supervisorImg}
+                alt="المشرف والإدارة"
+                className="w-full h-full object-contain drop-shadow-sm select-none"
+              />
             </div>
 
             {/* Title */}
