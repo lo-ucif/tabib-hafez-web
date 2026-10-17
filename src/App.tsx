@@ -20,12 +20,12 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-[#1a5a81] flex flex-col font-changa selection:bg-[#48a6a7] selection:text-white" dir="rtl">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-white text-[#1a5a81] flex flex-col font-changa selection:bg-[#48a6a7] selection:text-white" dir="rtl">
       {/* Sticky Header / Navbar */}
       <Navbar onOpenAuth={openAuth} />
 
       {/* Main Content Sections */}
-      <main className="flex-1 w-full">
+      <main className="flex-1 w-full max-w-full overflow-x-hidden">
         {/* Hero Section (Section 13) */}
         <Hero onRegister={() => openAuth('register')} />
 

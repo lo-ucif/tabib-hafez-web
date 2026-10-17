@@ -9,8 +9,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="w-full bg-white sticky top-0 z-50 border-b border-slate-100 shadow-sm transition-all duration-300">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 h-[54px] md:h-[84px] flex items-center justify-between">
+    <header className="w-full max-w-full bg-white sticky top-0 z-50 border-b border-slate-100 shadow-sm transition-all duration-300 overflow-x-hidden">
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 h-[54px] md:h-[84px] flex items-center justify-between">
         
         {/* Right side in RTL: Brand Logo */}
         <div className="flex items-center gap-4">
@@ -78,11 +78,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
           </button>
         </div>
 
-        {/* Mobile Hamburger toggle (exact 30x21px icon matching Figma node 942:6079) */}
+        {/* Mobile Hamburger toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           type="button"
-          className="md:hidden flex items-center justify-center p-1.5 rounded-lg text-[#1a5a81] hover:bg-slate-50 transition"
+          className="md:hidden flex items-center justify-center p-1.5 rounded-lg text-[#1a5a81] hover:bg-slate-50 transition cursor-pointer"
           aria-label="القائمة"
         >
           {mobileMenuOpen ? (
@@ -99,11 +99,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 px-6 py-5 flex flex-col gap-3 shadow-lg animate-in slide-in-from-top duration-200">
+        <div className="md:hidden w-full max-w-full bg-white border-b border-slate-200 px-4 py-4 flex flex-col gap-2.5 shadow-lg animate-in slide-in-from-top duration-200 overflow-hidden">
           <a
             href="#home"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-[#e2a72b] font-semibold text-lg py-2 border-b border-slate-100 flex items-center justify-between"
+            className="text-[#e2a72b] font-semibold text-base py-2 border-b border-slate-100 flex items-center justify-between"
           >
             <span>الرئيسية</span>
             <span className="w-2 h-2 rounded-full bg-[#e2a72b]" />
@@ -111,28 +111,28 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
           <a
             href="#features"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-[#1a5a81] font-medium text-lg py-2 border-b border-slate-100"
+            className="text-[#1a5a81] font-medium text-base py-2 border-b border-slate-100"
           >
             المميزات
           </a>
           <a
             href="#activities"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-[#1a5a81] font-medium text-lg py-2 border-b border-slate-100"
+            className="text-[#1a5a81] font-medium text-base py-2 border-b border-slate-100"
           >
             الأنشطة
           </a>
           <a
             href="#roles"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-[#1a5a81] font-medium text-lg py-2 border-b border-slate-100"
+            className="text-[#1a5a81] font-medium text-base py-2 border-b border-slate-100"
           >
             الأدوار
           </a>
           <a
             href="#contact"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-[#1a5a81] font-medium text-lg py-2 border-b border-slate-100"
+            className="text-[#1a5a81] font-medium text-base py-2 border-b border-slate-100"
           >
             تواصل معنا
           </a>
@@ -142,7 +142,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
               onOpenAuth('login')
             }}
             type="button"
-            className="w-full bg-[#48a6a7] hover:bg-[#3c8e8f] text-white font-semibold text-lg py-3 rounded-[6px] mt-2 shadow transition active:scale-98"
+            className="w-full bg-[#48a6a7] hover:bg-[#3c8e8f] text-white font-semibold text-base py-3 rounded-[6px] mt-2 shadow transition active:scale-98 cursor-pointer"
           >
             تسجيل الدخول
           </button>
