@@ -34,43 +34,43 @@ export const Activities: React.FC = () => {
   }
 
   return (
-    <section id="activities" className="relative w-full bg-[#fefefe] py-20 px-6 sm:px-12 overflow-hidden">
+    <section id="activities" className="relative w-full bg-[#fefefe] py-14 sm:py-20 px-4 sm:px-12 overflow-hidden">
       
       {/* Background Decorative SVGs */}
       <img
         src={assets.imgDoctorSvgrepoCom5}
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute left-[-30px] top-40 w-40 h-40 opacity-20 rotate-45"
+        className="pointer-events-none absolute left-[-30px] top-40 w-28 sm:w-40 h-28 sm:h-40 opacity-20 rotate-45"
       />
       <img
         src={assets.imgDoctorSvgrepoCom5}
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute right-[-20px] bottom-32 w-36 h-36 opacity-20 -rotate-12"
+        className="pointer-events-none absolute right-[-20px] bottom-32 w-28 sm:w-36 h-28 sm:h-36 opacity-20 -rotate-12"
       />
 
       <div className="max-w-[1300px] mx-auto flex flex-col items-center">
         
-        {/* Section Heading */}
-        <div className="text-center flex flex-col items-center mb-16 space-y-4">
-          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-semibold text-[#48a6a7]">
+        {/* Section Heading (Matching Figma mobile node 942:5510) */}
+        <div className="text-center flex flex-col items-center mb-10 sm:mb-16 space-y-3 sm:space-y-4">
+          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-semibold text-[#48a6a7]">
             نشاطاتنا الميدانية
           </h2>
-          <div className="h-[5px] w-48 sm:w-72 lg:w-[420px] max-w-full bg-[#e2a72b] rounded-full" />
-          <p className="text-lg sm:text-xl lg:text-[23px] text-black/60 font-medium max-w-[700px] leading-relaxed pt-2">
+          <div className="h-[5px] w-40 sm:w-72 lg:w-[420px] max-w-full bg-[#e2a72b] rounded-full" />
+          <p className="text-base sm:text-xl lg:text-[23px] text-black/60 font-medium max-w-[700px] leading-relaxed pt-1">
             من الحلقات إلى الورشات، نعيش القرآن والطب معًا خارج الشاشة.
           </p>
         </div>
 
-        {/* 3 Activity Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full justify-items-center mb-12">
+        {/* 3 Activity Cards (Single column stack on mobile matching node 942:5514) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full justify-items-center mb-10 sm:mb-12">
           {items.map((item, index) => (
             <div
               key={index}
               onClick={() => setSelectedIdx(index)}
-              className={`group relative w-full max-w-[320px] h-[490px] rounded-[30px] overflow-hidden border border-[#48a6a7]/60 bg-[#ddf3ee] shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer ${
-                selectedIdx === index ? 'ring-4 ring-[#48a6a7] scale-[1.03]' : 'hover:-translate-y-2'
+              className={`group relative w-full max-w-[300px] h-[503px] rounded-[30px] overflow-hidden border border-[#48a6a7]/60 bg-[#ddf3ee] shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer ${
+                selectedIdx === index ? 'ring-4 ring-[#48a6a7] scale-[1.02]' : 'hover:-translate-y-2'
               }`}
             >
               {/* Card Image */}
@@ -98,12 +98,12 @@ export const Activities: React.FC = () => {
           ))}
         </div>
 
-        {/* Navigation Indicators & Experience Badge */}
-        <div className="flex items-center justify-center gap-6 sm:gap-10 pt-4">
+        {/* Navigation Indicators & Experience Badge (Matching Figma mobile node 942:5549) */}
+        <div className="flex items-center justify-center gap-4 sm:gap-10 pt-2">
           <button
             onClick={prevSlide}
             type="button"
-            className="w-10 h-10 rounded-full bg-white border border-[#48a6a7]/40 shadow-sm hover:shadow-md flex items-center justify-center text-[#1a5a81] hover:bg-[#ddf3ee] transition active:scale-90 cursor-pointer"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#48a6a7]/40 shadow-sm hover:shadow-md flex items-center justify-center text-[#1a5a81] hover:bg-[#ddf3ee] transition active:scale-90 cursor-pointer"
             aria-label="Previous Activity"
           >
             <svg className="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -111,8 +111,8 @@ export const Activities: React.FC = () => {
             </svg>
           </button>
 
-          <div className="bg-[#ddf3ee] border border-[#bdbdbd] px-6 py-2.5 rounded-[30px] shadow-sm flex items-center gap-2">
-            <span className="text-[#1a5a81] font-semibold text-base sm:text-[17px]">
+          <div className="bg-[#ddf3ee] border border-[#bdbdbd] px-5 sm:px-6 py-2 rounded-[30px] shadow-sm flex items-center gap-2">
+            <span className="text-[#1a5a81] font-semibold text-sm sm:text-[17px]">
               +7 سنوات من العطاء
             </span>
           </div>
@@ -120,7 +120,7 @@ export const Activities: React.FC = () => {
           <button
             onClick={nextSlide}
             type="button"
-            className="w-10 h-10 rounded-full bg-white border border-[#48a6a7]/40 shadow-sm hover:shadow-md flex items-center justify-center text-[#1a5a81] hover:bg-[#ddf3ee] transition active:scale-90 cursor-pointer"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#48a6a7]/40 shadow-sm hover:shadow-md flex items-center justify-center text-[#1a5a81] hover:bg-[#ddf3ee] transition active:scale-90 cursor-pointer"
             aria-label="Next Activity"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

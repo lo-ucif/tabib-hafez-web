@@ -7,49 +7,49 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
   return (
-    <section id="home" className="relative w-full bg-white pt-10 pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16">
+    <section id="home" className="relative w-full bg-white pt-6 pb-12 sm:pt-10 sm:pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
         
-        {/* Left Side (in RTL): Dashboard mockup illustration */}
-        <div className="w-full lg:w-[50%] flex justify-center items-center">
-          <div className="relative w-full max-w-[574px] group">
-            <img
-              src={assets.imgFrame10000091311}
-              alt="لوحة تحكم الطبيب الحافظ"
-              className="w-full h-auto object-contain drop-shadow-xl transition-transform duration-500 hover:scale-[1.02]"
-            />
-          </div>
-        </div>
-
-        {/* Right Side (in RTL): Content & Call to Action */}
-        <div className="w-full lg:w-[50%] flex flex-col items-start text-right space-y-6">
+        {/* In Figma Mobile Mode (node 942:5416): Content Container is on top */}
+        <div className="w-full lg:w-[50%] flex flex-col items-center lg:items-start text-center lg:text-right space-y-5 sm:space-y-6">
           
           {/* Main Title */}
-          <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-[#1a5a81] leading-[1.3] tracking-wide">
+          <h1 className="text-2xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-[#1a5a81] leading-[1.35] tracking-wide">
             سماعة في العنق...وقران في القلب
           </h1>
 
           {/* Subtitle Description */}
-          <p className="text-base sm:text-lg lg:text-[19px] text-[#1a5a81]/90 font-normal leading-[1.8] max-w-[620px]">
+          <p className="text-sm sm:text-lg lg:text-[19px] text-[#1a5a81]/90 font-normal leading-[1.8] max-w-[620px]">
             مشروع طلابي علمي قرآني من نادي شفاء، بإشراف مديرية الأنشطة الثقافية والعلمية والرياضية بجامعة قسنطينة 3.
             يجمع طلبة التخصصات الطبية في مسار متكامل لحفظ كتاب الله ومراجعته، بتسميع منتظم ومتابعة دقيقة وشهادات معتمدة.
           </p>
 
           {/* Action Button */}
-          <div className="pt-2">
+          <div className="pt-2 w-full sm:w-auto flex justify-center lg:justify-start">
             <button
               onClick={onRegister}
               type="button"
-              className="bg-[#e2a72b] hover:bg-[#cf931d] text-white font-semibold text-[22px] sm:text-[24px] px-10 py-3.5 rounded-[6px] shadow-lg shadow-[#e2a72b]/25 hover:shadow-xl hover:shadow-[#e2a72b]/35 active:scale-95 transition-all cursor-pointer flex items-center justify-center min-w-[196px]"
+              className="w-full sm:w-auto bg-[#e2a72b] hover:bg-[#cf931d] text-white font-semibold text-xl sm:text-[24px] px-10 py-3.5 rounded-[6px] shadow-lg shadow-[#e2a72b]/25 hover:shadow-xl hover:shadow-[#e2a72b]/35 active:scale-95 transition-all cursor-pointer flex items-center justify-center min-w-[196px]"
             >
               سجل الان
             </button>
           </div>
 
           {/* Sub-label */}
-          <p className="text-sm sm:text-[15px] font-light text-[#1a5a81]/70 pt-2 border-t border-slate-100 w-full">
+          <p className="text-xs sm:text-[15px] font-light text-[#1a5a81]/70 pt-2 border-t border-slate-100 w-full text-center lg:text-right">
             مشروع الطبيب الحافظ قسنطينة | نادي شفاء
           </p>
+        </div>
+
+        {/* In Figma Mobile Mode (node 942:5416): Illustration is on bottom (w: 321px, h: 210px) */}
+        <div className="w-full lg:w-[50%] flex justify-center items-center pt-2 lg:pt-0">
+          <div className="relative w-[321px] sm:max-w-[480px] lg:max-w-[574px] group">
+            <img
+              src={assets.imgFrame10000091311}
+              alt="لوحة تحكم الطبيب الحافظ"
+              className="w-full h-auto object-contain drop-shadow-xl transition-transform duration-500 hover:scale-[1.02]"
+            />
+          </div>
         </div>
 
       </div>

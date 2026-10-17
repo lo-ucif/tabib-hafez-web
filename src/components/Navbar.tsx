@@ -10,11 +10,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
 
   return (
     <header className="w-full bg-white sticky top-0 z-50 border-b border-slate-100 shadow-sm transition-all duration-300">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 h-[84px] flex items-center justify-between">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 h-[54px] md:h-[84px] flex items-center justify-between">
         
         {/* Right side in RTL: Brand Logo */}
         <div className="flex items-center gap-4">
-          <a href="#" className="h-[60px] w-[166px] relative flex items-center">
+          <a href="#" className="h-[34px] w-[94px] md:h-[60px] md:w-[166px] relative flex items-center">
             <img
               src={assets.imgCover2RemovebgPreview2}
               alt="شعار الطبيب الحافظ"
@@ -23,7 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
           </a>
         </div>
 
-        {/* Center: Navigation Links */}
+        {/* Center: Navigation Links (Desktop) */}
         <nav className="hidden md:flex items-center gap-1 lg:gap-2">
           {/* Home Link (Active) */}
           <a
@@ -67,8 +67,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
           </a>
         </nav>
 
-        {/* Left side in RTL: Login Action */}
-        <div className="hidden sm:flex items-center gap-3">
+        {/* Left side in RTL: Login Action (Desktop) */}
+        <div className="hidden md:flex items-center gap-3">
           <button
             onClick={() => onOpenAuth('login')}
             type="button"
@@ -78,26 +78,28 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
           </button>
         </div>
 
-        {/* Mobile Hamburger toggle */}
+        {/* Mobile Hamburger toggle (exact 30x21px icon matching Figma node 942:6079) */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           type="button"
-          className="md:hidden p-2 rounded-lg text-[#1a5a81] hover:bg-slate-100 transition"
-          aria-label="Toggle menu"
+          className="md:hidden flex items-center justify-center p-1.5 rounded-lg text-[#1a5a81] hover:bg-slate-50 transition"
+          aria-label="القائمة"
         >
-          <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {mobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
+          {mobileMenuOpen ? (
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-[30px] h-[21px]" fill="none" stroke="currentColor" viewBox="0 0 30 21">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M2 2.5h26M2 10.5h26M2 18.5h26" />
+            </svg>
+          )}
         </button>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 px-6 py-4 flex flex-col gap-3 animate-in slide-in-from-top">
+        <div className="md:hidden bg-white border-b border-slate-200 px-6 py-5 flex flex-col gap-3 shadow-lg animate-in slide-in-from-top duration-200">
           <a
             href="#home"
             onClick={() => setMobileMenuOpen(false)}
@@ -140,7 +142,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
               onOpenAuth('login')
             }}
             type="button"
-            className="w-full bg-[#48a6a7] text-white font-semibold text-lg py-3 rounded-[6px] mt-2 shadow"
+            className="w-full bg-[#48a6a7] hover:bg-[#3c8e8f] text-white font-semibold text-lg py-3 rounded-[6px] mt-2 shadow transition active:scale-98"
           >
             تسجيل الدخول
           </button>

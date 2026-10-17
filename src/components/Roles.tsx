@@ -3,28 +3,28 @@ import { assets } from '../assets-map'
 
 export const Roles: React.FC = () => {
   return (
-    <section id="roles" className="relative w-full bg-[#fefefe] py-20 px-6 sm:px-12 overflow-hidden">
+    <section id="roles" className="relative w-full bg-[#fefefe] py-14 sm:py-20 px-4 sm:px-12 overflow-hidden">
       <div className="max-w-[1300px] mx-auto flex flex-col items-center">
         
-        {/* Section Heading */}
-        <div className="text-center flex flex-col items-center mb-16 space-y-4">
-          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-semibold text-[#48a6a7]">
+        {/* Section Heading (Matching Figma mobile node 942:5555) */}
+        <div className="text-center flex flex-col items-center mb-10 sm:mb-16 space-y-3 sm:space-y-4">
+          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-semibold text-[#48a6a7]">
             منظومة واحدة لكل الأدوار
           </h2>
-          <div className="h-[5px] w-48 sm:w-80 lg:w-[562px] max-w-full bg-[#e2a72b] rounded-full" />
-          <p className="text-lg sm:text-xl lg:text-[23px] text-black/60 font-medium max-w-[750px] leading-relaxed pt-2">
+          <div className="h-[5px] w-40 sm:w-80 lg:w-[562px] max-w-full bg-[#e2a72b] rounded-full" />
+          <p className="text-base sm:text-xl lg:text-[23px] text-black/60 font-medium max-w-[750px] leading-relaxed pt-1">
             لكل مستخدم لوحته الخاصة وأدواته التي تناسب مهمّته في رحلة التحفيظ.
           </p>
         </div>
 
-        {/* 3 Roles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full justify-items-center">
+        {/* 3 Roles Grid (Single column stack on mobile matching node 942:5559) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full justify-items-center">
           
           {/* Card 1: الطالب */}
-          <div className="group relative w-full max-w-[362px] h-[330px] bg-white rounded-[16px] border border-slate-100 shadow-[0px_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0px_12px_32px_rgba(72,166,167,0.15)] hover:-translate-y-2 transition-all duration-300 flex flex-col items-center p-6 text-center justify-between overflow-hidden">
+          <div className="group relative w-full max-w-[362px] min-h-[311px] sm:h-[330px] bg-white rounded-[16px] border border-slate-100 shadow-[0px_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0px_12px_32px_rgba(72,166,167,0.15)] hover:-translate-y-2 transition-all duration-300 flex flex-col items-center p-6 text-center justify-between overflow-hidden">
             
             {/* Character Graphic Container */}
-            <div className="relative w-[130px] h-[130px] mt-2 group-hover:scale-105 transition-transform duration-300">
+            <div className="relative w-[120px] sm:w-[130px] h-[120px] sm:h-[130px] mt-1 group-hover:scale-105 transition-transform duration-300">
               <div className="absolute inset-0">
                 <img alt="Vector 1" className="absolute inset-0 size-full object-contain" src={assets.imgVector1} />
                 <img alt="Vector 2" className="absolute inset-0 size-full object-contain" src={assets.imgVector2} />
@@ -36,12 +36,12 @@ export const Roles: React.FC = () => {
             </div>
 
             {/* Title */}
-            <h3 className="text-2xl font-semibold text-black mt-2">
+            <h3 className="text-xl sm:text-2xl font-semibold text-black mt-2">
               الطالب
             </h3>
 
             {/* Description */}
-            <p className="text-[17px] text-black/65 font-medium leading-[1.6] max-w-[300px]">
+            <p className="text-[15px] sm:text-[17px] text-black/65 font-medium leading-[1.6] max-w-[300px]">
               يتابع حفظه ومراجعته، يطلب مواعيد التسميع، ويرى تقدّمه وحضوره وشهاداته.
             </p>
 
@@ -50,10 +50,10 @@ export const Roles: React.FC = () => {
           </div>
 
           {/* Card 2: الأستاذ */}
-          <div className="group relative w-full max-w-[362px] h-[330px] bg-white rounded-[16px] border border-slate-100 shadow-[0px_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0px_12px_32px_rgba(72,166,167,0.15)] hover:-translate-y-2 transition-all duration-300 flex flex-col items-center p-6 text-center justify-between overflow-hidden">
+          <div className="group relative w-full max-w-[362px] min-h-[311px] sm:h-[330px] bg-white rounded-[16px] border border-slate-100 shadow-[0px_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0px_12px_32px_rgba(72,166,167,0.15)] hover:-translate-y-2 transition-all duration-300 flex flex-col items-center p-6 text-center justify-between overflow-hidden">
             
             {/* Character Graphic Container */}
-            <div className="relative w-[130px] h-[130px] mt-2 group-hover:scale-105 transition-transform duration-300">
+            <div className="relative w-[120px] sm:w-[130px] h-[120px] sm:h-[130px] mt-1 group-hover:scale-105 transition-transform duration-300">
               <div className="absolute inset-0">
                 <img alt="Vector 7" className="absolute inset-0 size-full object-contain" src={assets.imgVector7} />
                 <img alt="Vector 8" className="absolute inset-0 size-full object-contain" src={assets.imgVector8} />
@@ -65,12 +65,12 @@ export const Roles: React.FC = () => {
             </div>
 
             {/* Title */}
-            <h3 className="text-2xl font-semibold text-black mt-2">
+            <h3 className="text-xl sm:text-2xl font-semibold text-black mt-2">
               الأستاذ
             </h3>
 
             {/* Description */}
-            <p className="text-[17px] text-black/65 font-medium leading-[1.6] max-w-[300px]">
+            <p className="text-[15px] sm:text-[17px] text-black/65 font-medium leading-[1.6] max-w-[300px]">
               يدير حلقته، يقيّم الحفظ والتجويد، يرصد الحضور، ويوجّه طلابه بخطة أسبوعية.
             </p>
 
@@ -79,10 +79,10 @@ export const Roles: React.FC = () => {
           </div>
 
           {/* Card 3: المشرف والإدارة */}
-          <div className="group relative w-full max-w-[362px] h-[330px] bg-white rounded-[16px] border border-slate-100 shadow-[0px_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0px_12px_32px_rgba(72,166,167,0.15)] hover:-translate-y-2 transition-all duration-300 flex flex-col items-center p-6 text-center justify-between overflow-hidden">
+          <div className="group relative w-full max-w-[362px] min-h-[311px] sm:h-[330px] bg-white rounded-[16px] border border-slate-100 shadow-[0px_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0px_12px_32px_rgba(72,166,167,0.15)] hover:-translate-y-2 transition-all duration-300 flex flex-col items-center p-6 text-center justify-between overflow-hidden">
             
             {/* Character Graphic Container */}
-            <div className="relative w-[130px] h-[130px] mt-2 group-hover:scale-105 transition-transform duration-300">
+            <div className="relative w-[120px] sm:w-[130px] h-[120px] sm:h-[130px] mt-1 group-hover:scale-105 transition-transform duration-300">
               <div className="absolute inset-0">
                 <img alt="Vector 14" className="absolute inset-0 size-full object-contain" src={assets.imgVector14} />
                 <img alt="Vector 15" className="absolute inset-0 size-full object-contain" src={assets.imgVector15} />
@@ -93,12 +93,12 @@ export const Roles: React.FC = () => {
             </div>
 
             {/* Title */}
-            <h3 className="text-2xl font-semibold text-black mt-2">
+            <h3 className="text-xl sm:text-2xl font-semibold text-black mt-2">
               المشرف والإدارة
             </h3>
 
             {/* Description */}
-            <p className="text-[17px] text-black/65 font-medium leading-[1.6] max-w-[300px]">
+            <p className="text-[15px] sm:text-[17px] text-black/65 font-medium leading-[1.6] max-w-[300px]">
               يعتمد التسجيلات، ينظّم الحلقات والأساتذة، ويتابع أداء المنصة عبر تقارير شاملة.
             </p>
 
