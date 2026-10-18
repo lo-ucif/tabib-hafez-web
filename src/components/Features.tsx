@@ -1,5 +1,13 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import { assets } from '../assets-map'
+import {
+  fadeUpVariants,
+  createStaggerContainer,
+  staggerItemVariants,
+  defaultViewport,
+  premiumEase,
+} from '../animations/motionVariants'
 
 export const Features: React.FC = () => {
   const cards = [
@@ -74,23 +82,40 @@ export const Features: React.FC = () => {
 
       <div className="max-w-[1300px] mx-auto flex flex-col items-center w-full">
         
-        {/* Section Heading */}
-        <div className="text-center flex flex-col items-center mb-10 sm:mb-16 space-y-3 sm:space-y-4 w-full">
-          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-semibold text-[#48a6a7]">
+        {/* Section Heading with scroll reveal */}
+        <motion.div
+          variants={createStaggerContainer(0.1, 0.05)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          className="text-center flex flex-col items-center mb-10 sm:mb-16 space-y-3 sm:space-y-4 w-full"
+        >
+          <motion.h2 variants={fadeUpVariants} className="text-2xl sm:text-4xl lg:text-[40px] font-semibold text-[#48a6a7]">
             ماذا تجد في الطبيب الحافظ؟
-          </h2>
-          <div className="h-[5px] w-36 sm:w-80 lg:w-[562px] max-w-full bg-[#e2a72b] rounded-full" />
-          <p className="text-sm sm:text-xl lg:text-[23px] text-black/60 font-medium max-w-[750px] leading-relaxed pt-1 px-2">
+          </motion.h2>
+          <motion.div variants={fadeUpVariants} className="h-[5px] w-36 sm:w-80 lg:w-[562px] max-w-full bg-[#e2a72b] rounded-full" />
+          <motion.p variants={fadeUpVariants} className="text-sm sm:text-xl lg:text-[23px] text-black/60 font-medium max-w-[750px] leading-relaxed pt-1 px-2">
             أدوات تنظّم رحلتك مع القرآن، وتوازن بينها وبين دراستك الطبية.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        {/* 6 Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full justify-items-center">
+        {/* 6 Features Staggered Grid */}
+        <motion.div
+          variants={createStaggerContainer(0.08, 0.1)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full justify-items-center"
+        >
           {cards.map((card, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group relative w-full max-w-[335px] sm:max-w-[362px] min-h-[300px] sm:min-h-[311px] bg-white rounded-[14px] p-5 sm:p-7 flex flex-col items-center justify-between text-center border border-slate-100 shadow-[0px_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0px_12px_32px_rgba(72,166,167,0.14)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden"
+              variants={staggerItemVariants}
+              whileHover={{
+                y: -6,
+                transition: { duration: 0.25, ease: premiumEase },
+              }}
+              className="group relative w-full max-w-[335px] sm:max-w-[362px] min-h-[300px] sm:min-h-[311px] bg-white rounded-[14px] p-5 sm:p-7 flex flex-col items-center justify-between text-center border border-slate-100 shadow-[0px_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0px_14px_34px_rgba(72,166,167,0.16)] transition-shadow duration-300 overflow-hidden"
             >
               {/* Subtle curved background glow image from Figma */}
               <img
@@ -121,9 +146,9 @@ export const Features: React.FC = () => {
 
               {/* Accent Bottom Line on hover */}
               <div className="h-1 w-0 group-hover:w-16 bg-[#48a6a7] rounded-full transition-all duration-300 relative z-10" />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

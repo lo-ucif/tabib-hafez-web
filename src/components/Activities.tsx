@@ -1,5 +1,12 @@
 import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { assets } from '../assets-map'
+import {
+  fadeUpVariants,
+  createStaggerContainer,
+  defaultViewport,
+  premiumEase,
+} from '../animations/motionVariants'
 
 export const Activities: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0)
@@ -131,26 +138,34 @@ export const Activities: React.FC = () => {
 
       <div className="max-w-[1300px] mx-auto flex flex-col items-center relative z-10">
         
-        {/* Section Heading */}
-        <div className="text-center flex flex-col items-center mb-10 sm:mb-14 space-y-3 sm:space-y-4">
-          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-semibold text-[#48a6a7]">
+        {/* Section Heading with scroll reveal */}
+        <motion.div
+          variants={createStaggerContainer(0.1, 0.05)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          className="text-center flex flex-col items-center mb-10 sm:mb-14 space-y-3 sm:space-y-4"
+        >
+          <motion.h2 variants={fadeUpVariants} className="text-2xl sm:text-4xl lg:text-[40px] font-semibold text-[#48a6a7]">
             نشاطاتنا الميدانية
-          </h2>
-          <div className="h-[5px] w-40 sm:w-72 lg:w-[420px] max-w-full bg-[#e2a72b] rounded-full" />
-          <p className="text-base sm:text-xl lg:text-[23px] text-black/60 font-medium max-w-[700px] leading-relaxed pt-1">
+          </motion.h2>
+          <motion.div variants={fadeUpVariants} className="h-[5px] w-40 sm:w-72 lg:w-[420px] max-w-full bg-[#e2a72b] rounded-full" />
+          <motion.p variants={fadeUpVariants} className="text-base sm:text-xl lg:text-[23px] text-black/60 font-medium max-w-[700px] leading-relaxed pt-1">
             من الحلقات إلى الورشات، نعيش القرآن والطب معًا خارج الشاشة.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* ============================================================ */}
         {/* DESKTOP / TABLET VIEW: Exactly 3 cards showed, clickable */}
         {/* ============================================================ */}
         <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 w-full justify-items-center mb-8">
           {desktopVisible.map(({ item, offset, actualIndex }) => (
-            <div
+            <motion.div
               key={`${actualIndex}-${offset}`}
               onClick={() => handleDesktopCardClick(offset)}
-              className="group relative w-full max-w-[340px] h-[503px] rounded-[30px] overflow-hidden border border-[#48a6a7]/60 bg-[#ddf3ee] shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-2 select-none"
+              whileHover={{ y: -6, transition: { duration: 0.25, ease: premiumEase } }}
+              whileTap={{ scale: 0.98 }}
+              className="group relative w-full max-w-[340px] h-[503px] rounded-[30px] overflow-hidden border border-[#48a6a7]/60 bg-[#ddf3ee] shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer select-none"
               title="انقر لتغيير النشاط"
             >
               {/* Card Image */}
@@ -180,7 +195,7 @@ export const Activities: React.FC = () => {
                   {item.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -188,19 +203,26 @@ export const Activities: React.FC = () => {
         {/* MOBILE VIEW: Exactly 1 card showed, tap to change image */}
         {/* ============================================================ */}
         <div className="block md:hidden w-full max-w-[340px] mb-8">
-          <div
+          <motion.div
             onClick={handleMobileCardClick}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
-            className="group relative w-full h-[490px] rounded-[30px] overflow-hidden border-2 border-[#48a6a7] bg-[#ddf3ee] shadow-xl active:scale-[0.98] transition-all duration-300 cursor-pointer select-none"
+            whileTap={{ scale: 0.98 }}
+            className="group relative w-full h-[490px] rounded-[30px] overflow-hidden border-2 border-[#48a6a7] bg-[#ddf3ee] shadow-xl cursor-pointer select-none"
           >
-            {/* Card Image */}
-            <img
-              key={mobileItem.id}
-              src={mobileItem.image}
-              alt={mobileItem.title}
-              className="w-full h-full object-cover transition-opacity duration-500"
-            />
+            {/* Smooth transition Card Image */}
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={mobileItem.id}
+                src={mobileItem.image}
+                alt={mobileItem.title}
+                initial={{ opacity: 0.3, scale: 1.04 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0.3, scale: 0.98 }}
+                transition={{ duration: 0.35, ease: premiumEase }}
+                className="w-full h-full object-cover"
+              />
+            </AnimatePresence>
 
             {/* Floating Pill Tag */}
             <div className="absolute top-5 right-5 bg-[#48a6a7]/90 backdrop-blur-md border border-white/60 text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-sm">
@@ -224,7 +246,7 @@ export const Activities: React.FC = () => {
                 {mobileItem.description}
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* ============================================================ */}
@@ -235,16 +257,18 @@ export const Activities: React.FC = () => {
           {/* Buttons & Experience Badge */}
           <div className="flex items-center justify-center gap-3 sm:gap-6 pt-2">
             {/* Previous Button */}
-            <button
+            <motion.button
               onClick={prevSlide}
               type="button"
-              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-[#48a6a7]/50 shadow-sm hover:shadow-md flex items-center justify-center text-[#1a5a81] hover:bg-[#ddf3ee] transition active:scale-90 cursor-pointer"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.92 }}
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-[#48a6a7]/50 shadow-sm hover:shadow-md flex items-center justify-center text-[#1a5a81] hover:bg-[#ddf3ee] transition-colors cursor-pointer"
               aria-label="السابق"
             >
               <svg className="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
               </svg>
-            </button>
+            </motion.button>
 
             {/* Center Badge */}
             <div className="bg-[#ddf3ee] border border-[#bdbdbd]/70 px-5 sm:px-6 py-2 rounded-[30px] shadow-sm flex items-center">
@@ -254,16 +278,18 @@ export const Activities: React.FC = () => {
             </div>
 
             {/* Next Button */}
-            <button
+            <motion.button
               onClick={nextSlide}
               type="button"
-              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-[#48a6a7]/50 shadow-sm hover:shadow-md flex items-center justify-center text-[#1a5a81] hover:bg-[#ddf3ee] transition active:scale-90 cursor-pointer"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.92 }}
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-[#48a6a7]/50 shadow-sm hover:shadow-md flex items-center justify-center text-[#1a5a81] hover:bg-[#ddf3ee] transition-colors cursor-pointer"
               aria-label="التالي"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
               </svg>
-            </button>
+            </motion.button>
           </div>
 
           {/* 6 Interactive Event Dots */}

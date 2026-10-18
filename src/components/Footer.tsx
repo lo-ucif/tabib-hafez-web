@@ -1,33 +1,44 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { assets } from "../assets-map";
+import {
+  fadeUpVariants,
+  createStaggerContainer,
+  defaultViewport,
+} from "../animations/motionVariants";
 
 export const Footer: React.FC = () => {
   return (
     <footer className="relative w-full bg-[#1a5a81] text-white pt-12 sm:pt-16 pb-8 px-4 sm:px-12 border-t border-white/10 overflow-hidden">
       {/* Background Decorative Stethoscope SVGs (~20% opacity) */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden select-none">
-        <img
+        <motion.img
           src={assets.imgDoctorSvgrepoCom4}
           alt=""
           aria-hidden="true"
-          className="absolute -right-10 -bottom-10 w-36 sm:w-48 h-36 sm:h-48 opacity-20 rotate-45"
+          animate={{ y: [-6, 6, -6], rotate: [45, 49, 45] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -right-10 -bottom-10 w-36 sm:w-48 h-36 sm:h-48 opacity-20"
         />
       </div>
 
-      <div className="max-w-[1300px] mx-auto space-y-10 sm:space-y-12 relative z-10">
+      <motion.div
+        variants={createStaggerContainer(0.12, 0.05)}
+        initial="hidden"
+        whileInView="visible"
+        viewport={defaultViewport}
+        className="max-w-[1300px] mx-auto space-y-10 sm:space-y-12 relative z-10"
+      >
         {/* Main Columns Grid (Matching Figma mobile node 942:5840) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 text-right">
           {/* Column 1: Organization & University Info (Newsletter / Shifaa Club) */}
-          <div className="space-y-4">
+          <motion.div variants={fadeUpVariants} className="space-y-4">
             <div className="flex items-center gap-3">
               <img
                 src={assets.imgShifaaClubImage}
                 alt="نادي شفاء"
                 className="h-20 sm:h-20 w-auto object-contain"
               />
-              {/* <span className="text-lg sm:text-xl font-bold tracking-tight text-white">
-                نادي شفاء
-              </span> */}
             </div>
 
             <p className="text-sm sm:text-base lg:text-lg text-slate-200 leading-[1.9] font-normal">
@@ -43,10 +54,10 @@ export const Footer: React.FC = () => {
                 كلية الطب - جامعة صالح بوبنيدر
               </span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Column 2: Quick Links (روابط سريعة) */}
-          <div className="space-y-4">
+          <motion.div variants={fadeUpVariants} className="space-y-4">
             <h4 className="text-lg sm:text-xl font-bold text-white border-b border-white/20 pb-2 inline-block">
               روابط سريعة
             </h4>
@@ -97,19 +108,21 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Column 3: Social Links & Logo (تابعنا) */}
-          <div className="space-y-5">
+          <motion.div variants={fadeUpVariants} className="space-y-5">
             <h4 className="text-lg sm:text-xl font-bold text-white border-b border-white/20 pb-2 inline-block">
               تابعنا
             </h4>
 
             <div className="flex flex-col gap-2.5 sm:gap-3 text-sm sm:text-base">
-              <a
+              <motion.a
                 href="https://www.facebook.com/profile.php?id=100080281117121"
                 target="_blank"
                 rel="noreferrer"
+                whileHover={{ x: -4 }}
+                transition={{ duration: 0.2 }}
                 className="flex items-center gap-3 text-slate-200 hover:text-[#e2a72b] transition py-1 group"
               >
                 <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition">
@@ -120,12 +133,14 @@ export const Footer: React.FC = () => {
                   />
                 </div>
                 <span>فيسبوك</span>
-              </a>
+              </motion.a>
 
-              <a
+              <motion.a
                 href="https://www.instagram.com/shifaaclub_tabibhafed25?rpxt=MTA3bXZueTN5YW55aQ=="
                 target="_blank"
                 rel="noreferrer"
+                whileHover={{ x: -4 }}
+                transition={{ duration: 0.2 }}
                 className="flex items-center gap-3 text-slate-200 hover:text-[#e2a72b] transition py-1 group"
               >
                 <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition">
@@ -136,12 +151,14 @@ export const Footer: React.FC = () => {
                   />
                 </div>
                 <span>إنستغرام</span>
-              </a>
+              </motion.a>
 
-              <a
+              <motion.a
                 href="https://t.me/tabibhafed"
                 target="_blank"
                 rel="noreferrer"
+                whileHover={{ x: -4 }}
+                transition={{ duration: 0.2 }}
                 className="flex items-center gap-3 text-slate-200 hover:text-[#e2a72b] transition py-1 group"
               >
                 <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition">
@@ -153,7 +170,7 @@ export const Footer: React.FC = () => {
                   </svg>
                 </div>
                 <span>تيليجرام</span>
-              </a>
+              </motion.a>
             </div>
 
             {/* Logo image badge */}
@@ -164,7 +181,7 @@ export const Footer: React.FC = () => {
                 className="h-10 sm:h-12 w-auto object-contain filter brightness-0 invert opacity-90"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Horizontal Divider (Matching Figma mobile node 942:5919) */}
@@ -172,22 +189,11 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Credits & Copyright (Matching Figma mobile node 942:5920) */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-300">
-          {/* <div className="flex items-center gap-2">
-            <img
-              src={assets.imgFrame1000009141}
-              alt=""
-              className="h-6 sm:h-7 w-auto object-contain"
-            />
-            <span className="font-semibold text-white">
-              من إنجاز منصة حافظ
-            </span>
-          </div> */}
-
           <p className="text-center sm:text-right">
             © 2026 الطبيب الحافظ – نادي شفاء. جميع الحقوق محفوظة.
           </p>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 };
