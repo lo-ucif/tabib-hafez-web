@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { assets } from '../assets-map'
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_yrnzod4'
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_cye4mvn'
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'G0Pau62zQ44jLhSKR'
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,20 +15,60 @@ export const Contact: React.FC = () => {
     agreed: false,
   })
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!formData.name || !formData.email || !formData.message) {
-      alert('يرجى ملء جميع الحقول المطلوبة')
+    setErrorMessage(null)
+
+    if (!formData.name.trim()) {
+      setErrorMessage('يرجى إدخال الاسم الكامل.')
       return
     }
+
+    if (!formData.email.trim() || !validateEmail(formData.email)) {
+      setErrorMessage('يرجى إدخال عنوان بريد إلكتروني صحيح.')
+      return
+    }
+
+    if (!formData.message.trim()) {
+      setErrorMessage('يرجى كتابة نص الرسالة.')
+      return
+    }
+
     if (!formData.agreed) {
-      alert('يرجى الموافقة على الشروط وسياسة الخصوصية')
+      setErrorMessage('يرجى الموافقة على الشروط وسياسة الخصوصية للمتابعة.')
       return
     }
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
+
+    setLoading(true)
+
+    try {
+      const templateParams = {
+        name: formData.name.trim(),
+        from_name: formData.name.trim(),
+        user_name: formData.name.trim(),
+        email: formData.email.trim(),
+        from_email: formData.email.trim(),
+        user_email: formData.email.trim(),
+        reply_to: formData.email.trim(),
+        subject: formData.subject.trim() || 'رسالة جديدة من موقع الطبيب الحافظ',
+        message: formData.message.trim(),
+      }
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      )
+
+      setSubmitted(true)
       setFormData({
         name: '',
         email: '',
@@ -31,7 +76,14 @@ export const Contact: React.FC = () => {
         message: '',
         agreed: false,
       })
-    }, 4000)
+    } catch (error) {
+      console.error('EmailJS Error:', error)
+      setErrorMessage(
+        'حدث خطأ أثناء إرسال الرسالة، يرجى المحاولة مرة أخرى لاحقًا أو التحقق من الاتصال.'
+      )
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -113,6 +165,15 @@ export const Contact: React.FC = () => {
                   <p className="text-slate-600 text-sm sm:text-base">
                     شكرًا لتواصلك معنا، سيتواصل معك أحد مسؤولي المشروع قريبًا.
                   </p>
+                  <div className="pt-2">
+                    <button
+                      type="button"
+                      onClick={() => setSubmitted(false)}
+                      className="inline-flex items-center justify-center text-sm font-semibold text-[#48a6a7] hover:text-[#3b8c8d] underline underline-offset-4 cursor-pointer transition-colors"
+                    >
+                      إرسال رسالة أخرى
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-5 text-right w-full">
@@ -127,7 +188,8 @@ export const Contact: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       required
-                      className="w-full h-[52px] sm:h-[58px] px-3.5 sm:px-4 rounded-[6px] border border-slate-300 focus:border-[#48a6a7] focus:ring-2 focus:ring-[#48a6a7]/20 outline-none text-sm sm:text-base transition bg-white"
+                      disabled={loading}
+                      className="w-full h-[52px] sm:h-[58px] px-3.5 sm:px-4 rounded-[6px] border border-slate-300 focus:border-[#48a6a7] focus:ring-2 focus:ring-[#48a6a7]/20 outline-none text-sm sm:text-base transition bg-white disabled:bg-slate-50 disabled:cursor-not-allowed"
                     />
                   </div>
 
@@ -142,7 +204,8 @@ export const Contact: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
-                      className="w-full h-[52px] sm:h-[58px] px-3.5 sm:px-4 rounded-[6px] border border-slate-300 focus:border-[#48a6a7] focus:ring-2 focus:ring-[#48a6a7]/20 outline-none text-sm sm:text-base transition bg-white"
+                      disabled={loading}
+                      className="w-full h-[52px] sm:h-[58px] px-3.5 sm:px-4 rounded-[6px] border border-slate-300 focus:border-[#48a6a7] focus:ring-2 focus:ring-[#48a6a7]/20 outline-none text-sm sm:text-base transition bg-white disabled:bg-slate-50 disabled:cursor-not-allowed"
                     />
                   </div>
 
@@ -156,7 +219,8 @@ export const Contact: React.FC = () => {
                       placeholder="عنوان استفسارك أو طلبك"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full h-[52px] sm:h-[58px] px-3.5 sm:px-4 rounded-[6px] border border-slate-300 focus:border-[#48a6a7] focus:ring-2 focus:ring-[#48a6a7]/20 outline-none text-sm sm:text-base transition bg-white"
+                      disabled={loading}
+                      className="w-full h-[52px] sm:h-[58px] px-3.5 sm:px-4 rounded-[6px] border border-slate-300 focus:border-[#48a6a7] focus:ring-2 focus:ring-[#48a6a7]/20 outline-none text-sm sm:text-base transition bg-white disabled:bg-slate-50 disabled:cursor-not-allowed"
                     />
                   </div>
 
@@ -170,8 +234,9 @@ export const Contact: React.FC = () => {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       required
+                      disabled={loading}
                       rows={4}
-                      className="w-full p-3 sm:p-4 rounded-[6px] border border-slate-300 focus:border-[#48a6a7] focus:ring-2 focus:ring-[#48a6a7]/20 outline-none text-sm sm:text-base transition bg-white resize-none"
+                      className="w-full p-3 sm:p-4 rounded-[6px] border border-slate-300 focus:border-[#48a6a7] focus:ring-2 focus:ring-[#48a6a7]/20 outline-none text-sm sm:text-base transition bg-white resize-none disabled:bg-slate-50 disabled:cursor-not-allowed"
                     />
                   </div>
 
@@ -182,20 +247,56 @@ export const Contact: React.FC = () => {
                       id="agreed-policy"
                       checked={formData.agreed}
                       onChange={(e) => setFormData({ ...formData, agreed: e.target.checked })}
-                      className="w-4 h-4 rounded text-[#48a6a7] border-slate-300 focus:ring-[#48a6a7] cursor-pointer"
+                      disabled={loading}
+                      className="w-4 h-4 rounded text-[#48a6a7] border-slate-300 focus:ring-[#48a6a7] cursor-pointer disabled:cursor-not-allowed"
                     />
                     <label htmlFor="agreed-policy" className="text-xs sm:text-sm font-light text-[#303030] cursor-pointer select-none">
                       أوافق على الشروط وسياسة الخصوصية
                     </label>
                   </div>
 
+                  {/* Error Message */}
+                  {errorMessage && (
+                    <div className="p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg text-xs sm:text-sm flex items-center gap-2 animate-in fade-in">
+                      <span className="text-base select-none">⚠️</span>
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
+
                   {/* Submit Button */}
                   <div className="pt-1">
                     <button
                       type="submit"
-                      className="w-full sm:w-auto bg-[#48a6a7] hover:bg-[#3b8c8d] text-white font-semibold text-base sm:text-2xl px-8 py-3 rounded-[6px] shadow-md hover:shadow-lg active:scale-95 transition-all cursor-pointer min-w-[180px]"
+                      disabled={loading}
+                      className="w-full sm:w-auto bg-[#48a6a7] hover:bg-[#3b8c8d] disabled:bg-[#48a6a7]/60 text-white font-semibold text-base sm:text-2xl px-8 py-3 rounded-[6px] shadow-md hover:shadow-lg active:scale-95 transition-all cursor-pointer disabled:cursor-not-allowed min-w-[180px] flex items-center justify-center gap-2.5"
                     >
-                      ارسل الان
+                      {loading ? (
+                        <>
+                          <svg
+                            className="animate-spin h-5 w-5 text-white"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            />
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            />
+                          </svg>
+                          <span>جاري الإرسال...</span>
+                        </>
+                      ) : (
+                        'ارسل الان'
+                      )}
                     </button>
                   </div>
                 </form>
