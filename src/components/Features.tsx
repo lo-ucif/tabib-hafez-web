@@ -24,7 +24,7 @@ export const Features: React.FC = () => {
     {
       title: 'الحضور وتبريرات الغياب',
       description: 'سجّل حضورك، وقدّم تبريرات الغياب إلكترونياً، واطّلع على سجلّك في أي وقت بشفافية كاملة.',
-      icon: assets.imgLayer2,
+      icon: assets.imgGroup1,
       iconClass: 'h-[75px] sm:h-[85px] w-auto',
     },
     {
