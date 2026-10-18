@@ -2,11 +2,35 @@ import React from 'react'
 import studentImg from '../assets/student.webp'
 import teacherImg from '../assets/teacher.webp'
 import supervisorImg from '../assets/supervisor.webp'
+import { assets } from '../assets-map'
 
 export const Roles: React.FC = () => {
   return (
     <section id="roles" className="relative w-full max-w-full bg-[#fefefe] py-14 sm:py-20 px-4 sm:px-12 overflow-hidden">
-      <div className="max-w-[1300px] mx-auto flex flex-col items-center w-full">
+      
+      {/* Background Decorative Stethoscope SVGs (~20% opacity) */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden select-none">
+        <img
+          src={assets.imgDoctorSvgrepoCom4}
+          alt=""
+          aria-hidden="true"
+          className="absolute -right-8 top-16 w-32 sm:w-44 h-32 sm:h-44 opacity-20 rotate-12"
+        />
+        <img
+          src={assets.imgDoctorSvgrepoCom4}
+          alt=""
+          aria-hidden="true"
+          className="absolute -left-8 bottom-12 w-32 sm:w-44 h-32 sm:h-44 opacity-20 -rotate-45"
+        />
+        <img
+          src={assets.imgDoctorSvgrepoCom4}
+          alt=""
+          aria-hidden="true"
+          className="absolute left-1/4 -top-6 w-24 sm:w-36 h-24 sm:h-36 opacity-15 rotate-[70deg] hidden lg:block"
+        />
+      </div>
+
+      <div className="max-w-[1300px] mx-auto flex flex-col items-center w-full relative z-10">
         
         {/* Section Heading */}
         <div className="text-center flex flex-col items-center mb-10 sm:mb-16 space-y-3 sm:space-y-4 w-full">

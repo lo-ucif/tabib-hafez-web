@@ -1,14 +1,22 @@
-import React from 'react'
-import { assets } from '../assets-map'
+import React from "react";
+import { assets } from "../assets-map";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="w-full bg-[#1a5a81] text-white pt-12 sm:pt-16 pb-8 px-4 sm:px-12 border-t border-white/10">
-      <div className="max-w-[1300px] mx-auto space-y-10 sm:space-y-12">
+    <footer className="relative w-full bg-[#1a5a81] text-white pt-12 sm:pt-16 pb-8 px-4 sm:px-12 border-t border-white/10 overflow-hidden">
+      {/* Background Decorative Stethoscope SVGs (~20% opacity) */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden select-none">
+        <img
+          src={assets.imgDoctorSvgrepoCom4}
+          alt=""
+          aria-hidden="true"
+          className="absolute -right-10 -bottom-10 w-36 sm:w-48 h-36 sm:h-48 opacity-20 rotate-45"
+        />
+      </div>
 
+      <div className="max-w-[1300px] mx-auto space-y-10 sm:space-y-12 relative z-10">
         {/* Main Columns Grid (Matching Figma mobile node 942:5840) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 text-right">
-
           {/* Column 1: Organization & University Info (Newsletter / Shifaa Club) */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
@@ -44,31 +52,46 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5 text-slate-200 text-sm sm:text-base">
               <li>
-                <a href="#home" className="hover:text-[#e2a72b] transition flex items-center gap-2">
+                <a
+                  href="#home"
+                  className="hover:text-[#e2a72b] transition flex items-center gap-2"
+                >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#e2a72b]" />
                   عن المنصة
                 </a>
               </li>
               <li>
-                <a href="#features" className="hover:text-[#e2a72b] transition flex items-center gap-2">
+                <a
+                  href="#features"
+                  className="hover:text-[#e2a72b] transition flex items-center gap-2"
+                >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#e2a72b]" />
                   ماذا نقدم
                 </a>
               </li>
               <li>
-                <a href="#activities" className="hover:text-[#e2a72b] transition flex items-center gap-2">
+                <a
+                  href="#activities"
+                  className="hover:text-[#e2a72b] transition flex items-center gap-2"
+                >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#e2a72b]" />
                   نشاطاتنا الميدانية
                 </a>
               </li>
               <li>
-                <a href="#roles" className="hover:text-[#e2a72b] transition flex items-center gap-2">
+                <a
+                  href="#roles"
+                  className="hover:text-[#e2a72b] transition flex items-center gap-2"
+                >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#e2a72b]" />
                   أدوار المنظومة
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-[#e2a72b] transition flex items-center gap-2">
+                <a
+                  href="#contact"
+                  className="hover:text-[#e2a72b] transition flex items-center gap-2"
+                >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#e2a72b]" />
                   تواصل معنا
                 </a>
@@ -90,7 +113,11 @@ export const Footer: React.FC = () => {
                 className="flex items-center gap-3 text-slate-200 hover:text-[#e2a72b] transition py-1 group"
               >
                 <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition">
-                  <img src={assets.imgFacebook} alt="فيسبوك" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                  <img
+                    src={assets.imgFacebook}
+                    alt="فيسبوك"
+                    className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
+                  />
                 </div>
                 <span>فيسبوك</span>
               </a>
@@ -102,7 +129,11 @@ export const Footer: React.FC = () => {
                 className="flex items-center gap-3 text-slate-200 hover:text-[#e2a72b] transition py-1 group"
               >
                 <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition">
-                  <img src={assets.imgInstagram} alt="إنستغرام" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                  <img
+                    src={assets.imgInstagram}
+                    alt="إنستغرام"
+                    className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
+                  />
                 </div>
                 <span>إنستغرام</span>
               </a>
@@ -114,7 +145,11 @@ export const Footer: React.FC = () => {
                 className="flex items-center gap-3 text-slate-200 hover:text-[#e2a72b] transition py-1 group"
               >
                 <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition">
-                  <img src={assets.imgX} alt="X" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                  <img
+                    src={assets.imgX}
+                    alt="X"
+                    className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
+                  />
                 </div>
                 <span>منصة X</span>
               </a>
@@ -129,7 +164,6 @@ export const Footer: React.FC = () => {
               />
             </div>
           </div>
-
         </div>
 
         {/* Horizontal Divider (Matching Figma mobile node 942:5919) */}
@@ -152,8 +186,7 @@ export const Footer: React.FC = () => {
             © 2026 الطبيب الحافظ – نادي شفاء. جميع الحقوق محفوظة.
           </p>
         </div>
-
       </div>
     </footer>
-  )
-}
+  );
+};

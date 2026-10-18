@@ -23,13 +23,19 @@ export const AppDownload: React.FC<AppDownloadProps> = ({ onLoginClick }) => {
         </svg>
       </div>
 
-      {/* Background Decorative Stethoscope (Right) */}
-      <div className="pointer-events-none absolute right-6 lg:right-14 top-1/2 -translate-y-1/2 opacity-25 select-none hidden md:block">
+      {/* Background Decorative Stethoscope SVGs (~20% opacity) */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden select-none">
         <img
-          src={assets.imgDoctorSvgrepoCom5}
+          src={assets.imgDoctorSvgrepoCom4}
           alt=""
           aria-hidden="true"
-          className="w-24 lg:w-32 h-24 lg:h-32 rotate-12"
+          className="absolute -right-6 top-8 w-28 sm:w-36 h-28 sm:h-36 opacity-20 rotate-12"
+        />
+        <img
+          src={assets.imgDoctorSvgrepoCom4}
+          alt=""
+          aria-hidden="true"
+          className="absolute left-6 bottom-6 w-24 sm:w-32 h-24 sm:h-32 opacity-20 -rotate-45"
         />
       </div>
 

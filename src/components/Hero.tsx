@@ -11,7 +11,29 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
       id="home"
       className="relative mt-5 sm:mt-20 lg:mt-10 w-full bg-white pt-6 pb-12 sm:pt-10 sm:pb-16 lg:pt-16 lg:pb-24 overflow-hidden"
     >
-      <div className="max-w-360 mx-auto px-4 sm:px-8 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
+      {/* Background Decorative Stethoscope SVGs (Scattered with ~20% opacity) */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden select-none">
+        <img
+          src={assets.imgDoctorSvgrepoCom4}
+          alt=""
+          aria-hidden="true"
+          className="absolute -right-6 top-6 w-28 sm:w-40 h-28 sm:h-40 opacity-20 rotate-12"
+        />
+        <img
+          src={assets.imgDoctorSvgrepoCom4}
+          alt=""
+          aria-hidden="true"
+          className="absolute left-6 bottom-8 w-24 sm:w-36 h-24 sm:h-36 opacity-20 -rotate-45"
+        />
+        <img
+          src={assets.imgDoctorSvgrepoCom4}
+          alt=""
+          aria-hidden="true"
+          className="absolute left-1/3 top-1/2 -translate-y-1/2 w-32 sm:w-44 h-32 sm:h-44 opacity-15 rotate-[75deg] hidden lg:block"
+        />
+      </div>
+
+      <div className="max-w-360 mx-auto px-4 sm:px-8 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 relative z-10">
         {/* In Figma Mobile Mode (node 942:5416): Content Container is on top */}
         <div className="w-full lg:w-[50%] flex flex-col items-center lg:items-start text-center lg:text-right space-y-5 sm:space-y-6">
           <img

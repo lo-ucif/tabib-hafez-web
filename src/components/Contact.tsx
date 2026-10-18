@@ -46,13 +46,25 @@ export const Contact: React.FC = () => {
         />
       </div>
 
-      {/* Decorative SVGs */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      {/* Decorative SVGs (~20% opacity) */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden select-none">
         <img
-          src={assets.imgDoctorSvgrepoCom5}
+          src={assets.imgDoctorSvgrepoCom4}
           alt=""
           aria-hidden="true"
-          className="absolute -right-4 sm:right-16 top-10 w-24 sm:w-36 h-24 sm:h-36 opacity-15 rotate-12"
+          className="absolute -right-4 sm:right-16 top-10 w-28 sm:w-40 h-28 sm:h-40 opacity-20 rotate-12"
+        />
+        <img
+          src={assets.imgDoctorSvgrepoCom4}
+          alt=""
+          aria-hidden="true"
+          className="absolute -left-6 sm:left-12 bottom-20 w-32 sm:w-44 h-32 sm:h-44 opacity-20 -rotate-45"
+        />
+        <img
+          src={assets.imgDoctorSvgrepoCom4}
+          alt=""
+          aria-hidden="true"
+          className="absolute left-1/4 top-16 w-24 sm:w-32 h-24 sm:h-32 opacity-15 rotate-180 hidden lg:block"
         />
       </div>
 

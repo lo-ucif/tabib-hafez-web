@@ -107,21 +107,29 @@ export const Activities: React.FC = () => {
   return (
     <section id="activities" className="relative w-full bg-[#fefefe] py-14 sm:py-20 px-4 sm:px-12 overflow-hidden">
       
-      {/* Background Decorative SVGs */}
-      <img
-        src={assets.imgDoctorSvgrepoCom5}
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[-30px] top-40 w-28 sm:w-40 h-28 sm:h-40 opacity-20 rotate-45"
-      />
-      <img
-        src={assets.imgDoctorSvgrepoCom5}
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[-20px] bottom-32 w-28 sm:w-36 h-28 sm:h-36 opacity-20 -rotate-12"
-      />
+      {/* Background Decorative Stethoscope SVGs (~20% opacity) */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden select-none">
+        <img
+          src={assets.imgDoctorSvgrepoCom4}
+          alt=""
+          aria-hidden="true"
+          className="absolute left-[-30px] top-40 w-28 sm:w-40 h-28 sm:h-40 opacity-20 rotate-45"
+        />
+        <img
+          src={assets.imgDoctorSvgrepoCom4}
+          alt=""
+          aria-hidden="true"
+          className="absolute right-[-20px] bottom-32 w-28 sm:w-36 h-28 sm:h-36 opacity-20 -rotate-12"
+        />
+        <img
+          src={assets.imgDoctorSvgrepoCom4}
+          alt=""
+          aria-hidden="true"
+          className="absolute left-1/3 bottom-12 w-24 sm:w-32 h-24 sm:h-32 opacity-15 rotate-[60deg] hidden lg:block"
+        />
+      </div>
 
-      <div className="max-w-[1300px] mx-auto flex flex-col items-center">
+      <div className="max-w-[1300px] mx-auto flex flex-col items-center relative z-10">
         
         {/* Section Heading */}
         <div className="text-center flex flex-col items-center mb-10 sm:mb-14 space-y-3 sm:space-y-4">
