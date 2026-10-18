@@ -137,7 +137,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Credits & Copyright (Matching Figma mobile node 942:5920) */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-300">
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <img
               src={assets.imgFrame1000009141}
               alt=""
@@ -146,7 +146,7 @@ export const Footer: React.FC = () => {
             <span className="font-semibold text-white">
               من إنجاز منصة حافظ
             </span>
-          </div>
+          </div> */}
 
           <p className="text-center sm:text-right">
             © 2026 الطبيب الحافظ – نادي شفاء. جميع الحقوق محفوظة.
