@@ -11,7 +11,7 @@ export const assets = {
   imgCover2RemovebgPreview3: "/figma-assets/0f733ffd85bd593635f057370376c1838151997c.png",
   imgLtGroupGtImage: "/figma-assets/0b7ff8ee44096bcea37921ef8aba1c276c062e2b.png",
   imgLtGroupGtImage1: "/figma-assets/999fa0b07f7ca6f3bd63b68735e097e14790cfd3.png",
-  imgShifaaClubImage: "/figma-assets/6a8907f0f516292cf11915782fb08bf50d92e781.png",
+  imgShifaaClubImage: "/shifaa-club-logo.png",
   imgLtPathGtLtPathGtLtPathGtLtPathGtLtPathGtLtPathGtImage: "/figma-assets/914fd93dbb53efc53d58f6e780ba34023b58d99d.png",
   imgEllipse1: "/figma-assets/594c403bfa434ea6041f3aa5620e8e8aafbbe4f3.svg",
   imgMeetNowSvgrepoCom1: "/figma-assets/12ca55713b4568215cbc75561533c5ffeb53f8f6.svg",

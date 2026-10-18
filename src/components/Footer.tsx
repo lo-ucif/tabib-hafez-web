@@ -5,21 +5,21 @@ export const Footer: React.FC = () => {
   return (
     <footer className="w-full bg-[#1a5a81] text-white pt-12 sm:pt-16 pb-8 px-4 sm:px-12 border-t border-white/10">
       <div className="max-w-[1300px] mx-auto space-y-10 sm:space-y-12">
-        
+
         {/* Main Columns Grid (Matching Figma mobile node 942:5840) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 text-right">
-          
+
           {/* Column 1: Organization & University Info (Newsletter / Shifaa Club) */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <img
                 src={assets.imgShifaaClubImage}
                 alt="نادي شفاء"
-                className="h-12 sm:h-14 w-auto object-contain filter brightness-0 invert"
+                className="h-20 sm:h-20 w-auto object-contain"
               />
-              <span className="text-lg sm:text-xl font-bold tracking-tight text-white">
+              {/* <span className="text-lg sm:text-xl font-bold tracking-tight text-white">
                 نادي شفاء
-              </span>
+              </span> */}
             </div>
 
             <p className="text-sm sm:text-base lg:text-lg text-slate-200 leading-[1.9] font-normal">
