@@ -14,7 +14,7 @@ export const Contact: React.FC = () => {
     message: '',
     agreed: false,
   })
-  const [submitted, setSubmitted] = useState(false)
+  const [showNotification, setShowNotification] = useState(false)
   const [loading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
@@ -68,7 +68,11 @@ export const Contact: React.FC = () => {
         EMAILJS_PUBLIC_KEY
       )
 
-      setSubmitted(true)
+      setShowNotification(true)
+      setTimeout(() => {
+        setShowNotification(false)
+      }, 5000)
+
       setFormData({
         name: '',
         email: '',
@@ -88,6 +92,32 @@ export const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="relative w-full max-w-full bg-[#fefefe] pt-14 pb-20 sm:pt-20 sm:pb-28 px-4 sm:px-12 overflow-hidden">
+      {/* Top Floating Notification on Success */}
+      {showNotification && (
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[9999] max-w-md w-[92%] sm:w-auto bg-[#48a6a7] text-white px-5 py-3.5 rounded-xl shadow-2xl border border-white/25 flex items-center justify-between gap-4 transition-all duration-300 animate-in slide-in-from-top-6 fade-in">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div className="text-right">
+              <h4 className="font-bold text-sm sm:text-base">تم إرسال رسالتك بنجاح!</h4>
+              <p className="text-xs sm:text-sm text-white/90">شكرًا لتواصلك معنا، سيتواصل معك أحد مسؤولي المشروع قريبًا.</p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => setShowNotification(false)}
+            className="text-white/80 hover:text-white p-1 rounded-lg hover:bg-white/15 transition-colors cursor-pointer shrink-0"
+            aria-label="إغلاق التنبيه"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      )}
 
       {/* Wave curved SVG background from Figma clipped securely */}
       <div className="absolute inset-x-0 bottom-0 pointer-events-none opacity-40 overflow-hidden">
@@ -153,30 +183,7 @@ export const Contact: React.FC = () => {
           {/* Form Card */}
           <div className="w-full lg:w-[55%] max-w-[580px] order-1 lg:order-2">
             <div className="bg-white rounded-[20px] sm:rounded-[30px] p-5 sm:p-10 shadow-[0px_0px_35px_rgba(0,0,0,0.06)] border border-slate-100">
-
-              {submitted ? (
-                <div className="py-12 text-center space-y-4 animate-in fade-in zoom-in-95">
-                  <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl">
-                    ✓
-                  </div>
-                  <h4 className="text-xl sm:text-2xl font-bold text-[#1a5a81]">
-                    تم استلام رسالتك بنجاح!
-                  </h4>
-                  <p className="text-slate-600 text-sm sm:text-base">
-                    شكرًا لتواصلك معنا، سيتواصل معك أحد مسؤولي المشروع قريبًا.
-                  </p>
-                  <div className="pt-2">
-                    <button
-                      type="button"
-                      onClick={() => setSubmitted(false)}
-                      className="inline-flex items-center justify-center text-sm font-semibold text-[#48a6a7] hover:text-[#3b8c8d] underline underline-offset-4 cursor-pointer transition-colors"
-                    >
-                      إرسال رسالة أخرى
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-5 text-right w-full">
+              <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-5 text-right w-full">
                   {/* Full Name */}
                   <div>
                     <label className="block text-xs sm:text-sm font-medium text-slate-700 mb-1">
@@ -299,8 +306,6 @@ export const Contact: React.FC = () => {
                     </button>
                   </div>
                 </form>
-              )}
-
             </div>
           </div>
 
