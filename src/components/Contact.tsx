@@ -88,7 +88,7 @@ export const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="relative w-full max-w-full bg-[#fefefe] pt-14 pb-20 sm:pt-20 sm:pb-28 px-4 sm:px-12 overflow-hidden">
-      
+
       {/* Wave curved SVG background from Figma clipped securely */}
       <div className="absolute inset-x-0 bottom-0 pointer-events-none opacity-40 overflow-hidden">
         <img
@@ -121,7 +121,7 @@ export const Contact: React.FC = () => {
       </div>
 
       <div className="max-w-[1300px] mx-auto flex flex-col items-center relative z-10 w-full">
-        
+
         {/* Section Heading */}
         <div className="text-center flex flex-col items-center mb-10 sm:mb-16 space-y-3 sm:space-y-4 w-full">
           <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-semibold text-[#48a6a7]">
@@ -135,7 +135,7 @@ export const Contact: React.FC = () => {
 
         {/* Content & Form Container */}
         <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-between">
-          
+
           {/* Side Prompt / Text */}
           <div className="w-full lg:w-[45%] text-center lg:text-right space-y-4 sm:space-y-6 order-2 lg:order-1 pt-2 lg:pt-0">
             <h3 className="text-lg sm:text-3xl lg:text-[32px] font-medium text-black/75 leading-[1.6]">
@@ -153,7 +153,7 @@ export const Contact: React.FC = () => {
           {/* Form Card */}
           <div className="w-full lg:w-[55%] max-w-[580px] order-1 lg:order-2">
             <div className="bg-white rounded-[20px] sm:rounded-[30px] p-5 sm:p-10 shadow-[0px_0px_35px_rgba(0,0,0,0.06)] border border-slate-100">
-              
+
               {submitted ? (
                 <div className="py-12 text-center space-y-4 animate-in fade-in zoom-in-95">
                   <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl">
@@ -257,8 +257,7 @@ export const Contact: React.FC = () => {
 
                   {/* Error Message */}
                   {errorMessage && (
-                    <div className="p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg text-xs sm:text-sm flex items-center gap-2 animate-in fade-in">
-                      <span className="text-base select-none">⚠️</span>
+                    <div className="p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg text-xs sm:text-sm animate-in fade-in">
                       <span>{errorMessage}</span>
                     </div>
                   )}
