@@ -107,7 +107,7 @@ export const Footer: React.FC = () => {
 
             <div className="flex flex-col gap-2.5 sm:gap-3 text-sm sm:text-base">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/profile.php?id=100080281117121"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3 text-slate-200 hover:text-[#e2a72b] transition py-1 group"
@@ -123,7 +123,7 @@ export const Footer: React.FC = () => {
               </a>
 
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/shifaaclub_tabibhafed25?rpxt=MTA3bXZueTN5YW55aQ=="
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3 text-slate-200 hover:text-[#e2a72b] transition py-1 group"
@@ -139,7 +139,7 @@ export const Footer: React.FC = () => {
               </a>
 
               <a
-                href="https://t.me"
+                href="https://t.me/tabibhafed"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3 text-slate-200 hover:text-[#e2a72b] transition py-1 group"
