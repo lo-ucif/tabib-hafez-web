@@ -1,7 +1,7 @@
 import React from 'react'
-import studentImg from '../assets/student.png'
-import teacherImg from '../assets/teacher.png'
-import supervisorImg from '../assets/supervisor.png'
+import studentImg from '../assets/student.webp'
+import teacherImg from '../assets/teacher.webp'
+import supervisorImg from '../assets/supervisor.webp'
 
 export const Roles: React.FC = () => {
   return (
