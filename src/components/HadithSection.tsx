@@ -5,7 +5,7 @@ export const HadithSection: React.FC = () => {
   return (
     <section className="relative w-full bg-[#1a5a81] py-12 sm:py-20 px-4 sm:px-12 text-[#f2efe7] overflow-hidden flex items-center justify-center min-h-[380px] sm:min-h-[420px]">
       {/* Pattern texture overlay from Figma */}
-      <div className="absolute inset-0 pointer-events-none opacity-15 mix-blend-overlay">
+      <div className="absolute inset-0 pointer-events-none opacity-2 mix-blend-overlay">
         <img
           src={assets.imgSection3}
           alt=""
