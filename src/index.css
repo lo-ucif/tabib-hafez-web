@@ -50,3 +50,14 @@ body {
   max-width: 100%;
   overflow-x: hidden;
 }
+
+#home, #features, #activities, #roles, #contact {
+  scroll-margin-top: 54px;
+}
+
+@media (min-width: 768px) {
+  #home, #features, #activities, #roles, #contact {
+    scroll-margin-top: 84px;
+  }
+}
+

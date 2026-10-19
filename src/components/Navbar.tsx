@@ -23,13 +23,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
   // Track active section and scroll state
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 15)
+      const currentScroll = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0
+      setIsScrolled(currentScroll > 15)
 
-      const scrollPosition = window.scrollY + 140
+      // If scrolled close to bottom of page, highlight the last item (contact)
+      if (window.innerHeight + currentScroll >= document.documentElement.scrollHeight - 70) {
+        setActiveSection('contact')
+        return
+      }
+
+      const offsetThreshold = window.innerWidth < 768 ? 80 : 140
+      const scrollPosition = currentScroll + offsetThreshold
+
       for (const item of [...navItems].reverse()) {
         const el = document.getElementById(item.id)
         if (el) {
-          const top = el.offsetTop
+          const top = el.getBoundingClientRect().top + currentScroll
           if (scrollPosition >= top) {
             setActiveSection(item.id)
             break
@@ -43,16 +52,34 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const scrollToSection = (id: string, e: React.MouseEvent) => {
-    e.preventDefault()
+  const scrollToSection = (id: string, e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault()
+    }
     setActiveSection(id)
     setMobileMenuOpen(false)
+
     const el = document.getElementById(id)
     if (el) {
       const isMobile = window.innerWidth < 768
       const headerHeight = isMobile ? 54 : 84
-      const y = el.getBoundingClientRect().top + window.pageYOffset - headerHeight
-      window.scrollTo({ top: y, behavior: 'smooth' })
+
+      const doScroll = () => {
+        const currentScroll = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0
+        const targetY = el.getBoundingClientRect().top + currentScroll - headerHeight
+        window.scrollTo({
+          top: Math.max(0, targetY),
+          behavior: 'smooth',
+        })
+      }
+
+      // Initial scroll trigger
+      doScroll()
+
+      // Follow-up frames to ensure scroll isn't aborted by mobile drawer exit animation
+      requestAnimationFrame(doScroll)
+      setTimeout(doScroll, 60)
+      setTimeout(doScroll, 180)
     }
   }
 
