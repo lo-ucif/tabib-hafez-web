@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import React, { useState, useRef } from 'react'
+import { motion } from 'framer-motion'
 import { assets } from '../assets-map'
 import {
   fadeUpVariants,
@@ -7,10 +7,11 @@ import {
   defaultViewport,
   premiumEase,
 } from '../animations/motionVariants'
+import { StackedPhotoCarousel, type StackedPhotoCarouselRef } from './StackedPhotoCarousel'
 
 export const Activities: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0)
-  const [touchStartX, setTouchStartX] = useState<number | null>(null)
+  const carouselRef = useRef<StackedPhotoCarouselRef>(null)
 
   const items = [
     {
@@ -60,11 +61,19 @@ export const Activities: React.FC = () => {
   const total = items.length
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % total)
+    if (typeof window !== 'undefined' && window.innerWidth < 768 && carouselRef.current) {
+      carouselRef.current.triggerNext(1)
+    } else {
+      setCurrentIndex((prev) => (prev + 1) % total)
+    }
   }
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + total) % total)
+    if (typeof window !== 'undefined' && window.innerWidth < 768 && carouselRef.current) {
+      carouselRef.current.triggerPrev()
+    } else {
+      setCurrentIndex((prev) => (prev - 1 + total) % total)
+    }
   }
 
   // Handle card click on desktop: advances or focuses the clicked item
@@ -76,40 +85,12 @@ export const Activities: React.FC = () => {
     }
   }
 
-  // Handle card click on mobile: changes image to next
-  const handleMobileCardClick = () => {
-    nextSlide()
-  }
-
-  // Touch gesture support on mobile
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStartX(e.touches[0].clientX)
-  }
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX === null) return
-    const diff = touchStartX - e.changedTouches[0].clientX
-    if (Math.abs(diff) > 40) {
-      if (diff > 0) {
-        // Swiped left (in RTL forward)
-        nextSlide()
-      } else {
-        // Swiped right (in RTL backward)
-        prevSlide()
-      }
-    }
-    setTouchStartX(null)
-  }
-
   // Desktop visible 3 items
   const desktopVisible = [
     { item: items[currentIndex], offset: 0, actualIndex: currentIndex },
     { item: items[(currentIndex + 1) % total], offset: 1, actualIndex: (currentIndex + 1) % total },
     { item: items[(currentIndex + 2) % total], offset: 2, actualIndex: (currentIndex + 2) % total },
   ]
-
-  // Mobile single active item
-  const mobileItem = items[currentIndex]
 
   return (
     <section id="activities" className="relative w-full bg-[#fefefe] py-14 sm:py-20 px-4 sm:px-12 overflow-hidden">
@@ -200,53 +181,15 @@ export const Activities: React.FC = () => {
         </div>
 
         {/* ============================================================ */}
-        {/* MOBILE VIEW: Exactly 1 card showed, tap to change image */}
+        {/* MOBILE VIEW: Instagram Instants-inspired stacked photo carousel */}
         {/* ============================================================ */}
-        <div className="block md:hidden w-full max-w-[340px] mb-8">
-          <motion.div
-            onClick={handleMobileCardClick}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-            whileTap={{ scale: 0.98 }}
-            className="group relative w-full h-[490px] rounded-[30px] overflow-hidden border-2 border-[#48a6a7] bg-[#ddf3ee] shadow-xl cursor-pointer select-none"
-          >
-            {/* Smooth transition Card Image */}
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={mobileItem.id}
-                src={mobileItem.image}
-                alt={mobileItem.title}
-                initial={{ opacity: 0.3, scale: 1.04 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0.3, scale: 0.98 }}
-                transition={{ duration: 0.35, ease: premiumEase }}
-                className="w-full h-full object-cover"
-              />
-            </AnimatePresence>
-
-            {/* Floating Pill Tag */}
-            <div className="absolute top-5 right-5 bg-[#48a6a7]/90 backdrop-blur-md border border-white/60 text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-sm">
-              {mobileItem.badge}
-            </div>
-
-            {/* Tap to change indicator on mobile */}
-            <div className="absolute top-5 left-5 bg-black/45 backdrop-blur-md border border-white/40 text-white text-[11px] font-medium px-3 py-1 rounded-full flex items-center gap-1.5 shadow-md">
-              <svg className="w-3.5 h-3.5 text-[#e2a72b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
-              <span>انقر لتغيير الصورة</span>
-            </div>
-
-            {/* Frosted Teal Gradient Overlay at Bottom */}
-            <div className="absolute inset-x-0 bottom-0 h-[190px] bg-gradient-to-t from-[#1a5a81]/95 via-[#48a6a7]/85 to-transparent flex flex-col justify-end p-6 text-right">
-              <h3 className="text-xl font-bold text-white mb-2 drop-shadow-md">
-                {mobileItem.title}
-              </h3>
-              <p className="text-xs font-medium text-white/90 leading-relaxed drop-shadow-sm">
-                {mobileItem.description}
-              </p>
-            </div>
-          </motion.div>
+        <div className="block md:hidden w-full max-w-[340px] sm:max-w-[360px] mb-8">
+          <StackedPhotoCarousel
+            ref={carouselRef}
+            items={items}
+            currentIndex={currentIndex}
+            onIndexChange={setCurrentIndex}
+          />
         </div>
 
         {/* ============================================================ */}
