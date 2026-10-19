@@ -193,7 +193,7 @@ export const Footer: React.FC = () => {
             © 2026 الطبيب الحافظ – نادي شفاء. جميع الحقوق محفوظة.
           </p>
 
-          {/* <div className="flex items-center gap-2 text-slate-200">
+          <div className="flex items-center gap-2 text-slate-200">
             <span>من إنجاز</span>
             <span className="font-semibold text-white flex items-center gap-1.5 hover:text-[#f5d061] transition-colors">
               منصة حافظ
@@ -203,7 +203,7 @@ export const Footer: React.FC = () => {
                 className="h-5 w-auto object-contain inline-block"
               />
             </span>
-          </div> */}
+          </div>
         </div>
       </motion.div>
     </footer>
