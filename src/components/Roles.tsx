@@ -130,7 +130,7 @@ export const Roles: React.FC = () => {
           <motion.div
             variants={staggerItemVariants}
             whileHover={{ y: -7, transition: { duration: 0.28, ease: premiumEase } }}
-            className="group relative w-full max-w-[335px] sm:max-w-[362px] min-h-[311px] sm:h-[330px] bg-white rounded-[16px] border border-slate-100 shadow-[0px_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0px_14px_34px_rgba(26,90,129,0.2)] transition-shadow duration-300 flex flex-col items-center p-5 sm:p-6 text-center justify-between overflow-hidden"
+            className="group relative w-full max-w-[335px] sm:max-w-[362px] min-h-[311px] sm:h-[330px] bg-white rounded-[16px] border border-slate-100 shadow-[0px_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0px_14px_34px_rgba(26,90,129,0.2)] transition-shadow duration-300 flex flex-col items-center p-5 sm:p-6 text-center justify-between overflow-hidden md:col-span-2 lg:col-span-1"
           >
             
             {/* Character Graphic Container */}
