@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
           alt=""
           aria-hidden="true"
           animate={{ y: [-6, 6, -6], rotate: [45, 49, 45] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          // transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           className="absolute -right-10 -bottom-10 w-36 sm:w-48 h-36 sm:h-48 opacity-20"
         />
       </div>
