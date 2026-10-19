@@ -193,14 +193,14 @@ export const Footer: React.FC = () => {
             © 2026 الطبيب الحافظ – نادي شفاء. جميع الحقوق محفوظة.
           </p>
 
-          <div className="flex items-center gap-2 text-slate-200">
+          <div className="flex items-center gap-2 text-slate-200 text-xl">
             <span>من إنجاز</span>
             <span className="font-semibold text-white flex items-center gap-1.5 hover:text-[#f5d061] transition-colors">
               منصة حافظ
               <img
                 src={assets.hafezLogo}
                 alt="شعار منصة حافظ"
-                className="h-5 w-auto object-contain inline-block"
+                className="h-8 w-auto object-contain inline-block"
               />
             </span>
           </div>
