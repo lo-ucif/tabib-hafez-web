@@ -23,4 +23,5 @@ export const assets = {
   imgX: "/figma-assets/505dfe75bd21e0211965c242c19cbee490317699.svg",
   imgFrame1000009141: "/figma-assets/da167b117cd7101ead1185c06073fde8a3450d91.svg",
   imgShifaaClubImage: "/shifaa-club-logo.webp",
+  hafezLogo: "/hafez-logo.png",
 }
