@@ -61,7 +61,7 @@ export const Activities: React.FC = () => {
   const total = items.length
 
   const nextSlide = () => {
-    if (typeof window !== 'undefined' && window.innerWidth < 768 && carouselRef.current) {
+    if (typeof window !== 'undefined' && window.innerWidth < 1024 && carouselRef.current) {
       carouselRef.current.triggerNext(1)
     } else {
       setCurrentIndex((prev) => (prev + 1) % total)
@@ -69,7 +69,7 @@ export const Activities: React.FC = () => {
   }
 
   const prevSlide = () => {
-    if (typeof window !== 'undefined' && window.innerWidth < 768 && carouselRef.current) {
+    if (typeof window !== 'undefined' && window.innerWidth < 1024 && carouselRef.current) {
       carouselRef.current.triggerPrev()
     } else {
       setCurrentIndex((prev) => (prev - 1 + total) % total)
@@ -137,9 +137,9 @@ export const Activities: React.FC = () => {
         </motion.div>
 
         {/* ============================================================ */}
-        {/* DESKTOP / TABLET VIEW: Exactly 3 cards showed, clickable */}
+        {/* DESKTOP VIEW: Exactly 3 cards showed, clickable (>= 1024px) */}
         {/* ============================================================ */}
-        <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 w-full justify-items-center mb-8">
+        <div className="hidden lg:grid lg:grid-cols-3 gap-6 lg:gap-8 w-full justify-items-center mb-8">
           {desktopVisible.map(({ item, offset, actualIndex }) => (
             <motion.div
               key={`${actualIndex}-${offset}`}
@@ -181,9 +181,9 @@ export const Activities: React.FC = () => {
         </div>
 
         {/* ============================================================ */}
-        {/* MOBILE VIEW: Instagram Instants-inspired stacked photo carousel */}
+        {/* MOBILE & TABLET VIEW: Instagram Instants stacked photo carousel (< 1024px) */}
         {/* ============================================================ */}
-        <div className="block md:hidden w-full max-w-[340px] sm:max-w-[360px] mb-8">
+        <div className="block lg:hidden w-full max-w-[340px] sm:max-w-[370px] md:max-w-[390px] mb-8">
           <StackedPhotoCarousel
             ref={carouselRef}
             items={items}

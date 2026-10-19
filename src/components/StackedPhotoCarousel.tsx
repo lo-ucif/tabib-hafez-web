@@ -205,7 +205,7 @@ export const StackedPhotoCarousel = forwardRef<StackedPhotoCarouselRef, StackedP
 
     return (
       <div
-        className={`relative w-full max-w-[340px] sm:max-w-[360px] mx-auto select-none pt-8 pb-4 ${className}`}
+        className={`relative w-full max-w-[340px] sm:max-w-[370px] md:max-w-[390px] mx-auto select-none pt-8 pb-4 ${className}`}
         style={{ height: '535px' }}
       >
         {/* Layered Cards Stack */}
