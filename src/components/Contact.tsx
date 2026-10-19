@@ -62,11 +62,27 @@ export const Contact: React.FC = () => {
       const enteredSubject = formData.subject.trim();
       const subjectTitle = enteredSubject || "رسالة جديدة من موقع الطبيب الحافظ";
 
-      // Prepend subject to message so it is guaranteed to show in the email body
-      // even if the EmailJS template doesn't explicitly have a {{subject}} variable in its content
-      const formattedMessage = enteredSubject
-        ? `الموضوع: ${enteredSubject}\n\n${formData.message.trim()}`
-        : formData.message.trim();
+      const now = new Date();
+      const dateFormatted = now.toLocaleDateString("ar-DZ", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+      const timeFormatted = now.toLocaleTimeString("ar-DZ", {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+      const numericDate = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, "0")}/${String(now.getDate()).padStart(2, "0")} ${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+      const sendDateTime = `${dateFormatted} (${timeFormatted})`;
+
+      // Header lines prepended to message so subject and date are always visible in inbox
+      const headerParts: string[] = [];
+      if (enteredSubject) {
+        headerParts.push(`الموضوع: ${enteredSubject}`);
+      }
+      headerParts.push(`تاريخ ووقت الإرسال: ${sendDateTime}`);
+
+      const formattedMessage = `${headerParts.join("\n")}\n\n------------------------\n${formData.message.trim()}`;
 
       const templateParams = {
         name: formData.name.trim(),
@@ -81,6 +97,12 @@ export const Contact: React.FC = () => {
         email_title: subjectTitle,
         user_subject: subjectTitle,
         subject_title: subjectTitle,
+        date: sendDateTime,
+        time: timeFormatted,
+        send_date: sendDateTime,
+        sent_at: sendDateTime,
+        created_at: sendDateTime,
+        timestamp: numericDate,
         message: formattedMessage,
         content: formattedMessage,
         raw_message: formData.message.trim(),
