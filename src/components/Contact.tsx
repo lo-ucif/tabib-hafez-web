@@ -10,7 +10,7 @@ import {
 } from "../animations/motionVariants";
 
 const EMAILJS_SERVICE_ID =
-  import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_yrnzod4";
+  import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_qdkmf6d";
 const EMAILJS_TEMPLATE_ID =
   import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_cye4mvn";
 const EMAILJS_PUBLIC_KEY =
@@ -273,10 +273,8 @@ export const Contact: React.FC = () => {
               اكتب لنا وسيردّ عليك فريق المشروع في أقرب وقت.
             </p> */}
             {/* University info badge (Desktop only inside this container) */}
-            <div className="hidden lg:block p-4 sm:p-6 bg-[#ddf3ee]/60 border border-[#48a6a7]/30 rounded-2xl space-y-1.5 text-xs sm:text-sm text-[#1a5a81]">
-              <p className="font-semibold text-sm sm:text-base">
-                جامعة قسنطينة 3 - كلية الطب
-              </p>
+            <div className="hidden lg:block p-5 sm:p-6 bg-[#ddf3ee]/60 border border-[#48a6a7]/30 rounded-2xl text-[#1a5a81] font-moshref-thulth font-normal text-[26px] leading-[49px] tracking-[2px]">
+              <p>جامعة قسنطينة 3 - كلية الطب</p>
               <p>مشروع الطبيب الحافظ | نادي شفاء العلمي</p>
             </div>
           </motion.div>
@@ -440,11 +438,9 @@ export const Contact: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={defaultViewport}
             transition={{ duration: 0.5, ease: premiumEase }}
-            className="block lg:hidden w-full max-w-[580px] p-4 sm:p-5 bg-[#ddf3ee]/60 border border-[#48a6a7]/30 rounded-2xl space-y-1 text-center text-xs sm:text-sm text-[#1a5a81] order-3"
+            className="block lg:hidden w-full max-w-[580px] p-4 sm:p-6 bg-[#ddf3ee]/60 border border-[#48a6a7]/30 rounded-2xl text-center text-[#1a5a81] font-moshref-thulth font-normal text-[22px] sm:text-[30px] leading-[34px] sm:leading-[44px] tracking-[2px] order-3"
           >
-            <p className="font-semibold text-sm sm:text-base">
-              جامعة قسنطينة 3 - كلية الطب
-            </p>
+            <p>جامعة قسنطينة 3 - كلية الطب</p>
             <p>مشروع الطبيب الحافظ | نادي شفاء العلمي</p>
           </motion.div>
         </div>
