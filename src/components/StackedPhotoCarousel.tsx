@@ -21,15 +21,9 @@ export interface StackedPhotoCarouselProps {
   className?: string
 }
 
-interface AnimatingCardState {
-  item: StackedPhotoItem
-  direction: number
-  type: 'sendToBack' | 'bringToFront'
-}
-
-// Layered stack visual depth configurations
+// Visual configuration for each slot in the stack
 const STACK_CONFIGS = [
-  // Top / Front card (offset 0)
+  // Slot 0: Top / Front card
   {
     scale: 1,
     y: 0,
@@ -38,10 +32,10 @@ const STACK_CONFIGS = [
     zIndex: 30,
     opacity: 1,
     shadow:
-      '0 20px 35px -10px rgba(26, 90, 129, 0.35), 0 10px 18px -6px rgba(0, 0, 0, 0.16)',
+      '0 20px 35px -10px rgba(26, 90, 129, 0.32), 0 10px 18px -6px rgba(0, 0, 0, 0.16)',
     filter: 'brightness(100%)',
   },
-  // Second card behind (offset 1)
+  // Slot 1: Second card behind
   {
     scale: 0.94,
     y: -14,
@@ -49,10 +43,10 @@ const STACK_CONFIGS = [
     rotate: 3.5,
     zIndex: 20,
     opacity: 0.92,
-    shadow: '0 14px 26px -8px rgba(0, 0, 0, 0.22)',
+    shadow: '0 14px 26px -8px rgba(0, 0, 0, 0.2)',
     filter: 'brightness(96%)',
   },
-  // Third card behind (offset 2)
+  // Slot 2: Third card behind
   {
     scale: 0.88,
     y: -26,
@@ -60,15 +54,15 @@ const STACK_CONFIGS = [
     rotate: -3.5,
     zIndex: 10,
     opacity: 0.78,
-    shadow: '0 10px 20px -8px rgba(0, 0, 0, 0.18)',
+    shadow: '0 10px 20px -8px rgba(0, 0, 0, 0.16)',
     filter: 'brightness(92%)',
   },
-  // Hidden standby card in back (offset >= 3)
+  // Slot 3: Deep standby card in back
   {
     scale: 0.82,
     y: -36,
     x: 0,
-    rotate: 1.5,
+    rotate: 0,
     zIndex: 5,
     opacity: 0,
     shadow: 'none',
@@ -76,62 +70,75 @@ const STACK_CONFIGS = [
   },
 ]
 
+// Silky smooth easing curve for mobile deck transitions
+const FLUID_EASE = [0.22, 1, 0.36, 1] as const
+const TRANSITION_DURATION = 0.44
+
 export const StackedPhotoCarousel = forwardRef<StackedPhotoCarouselRef, StackedPhotoCarouselProps>(
   ({ items, currentIndex, onIndexChange, className = '' }, ref) => {
-    const [animatingCard, setAnimatingCard] = useState<AnimatingCardState | null>(null)
+    // Exiting card that sweeps away when going to Next
+    const [exitingCard, setExitingCard] = useState<{
+      item: StackedPhotoItem
+      direction: number
+    } | null>(null)
+
+    // Incoming card that sweeps in when going to Prev
+    const [incomingCard, setIncomingCard] = useState<{
+      item: StackedPhotoItem
+      direction: number
+    } | null>(null)
+
     const [isBusy, setIsBusy] = useState<boolean>(false)
 
-    // Motion values for tactile drag interaction
+    // Motion values for tactile drag interaction on front card
     const dragX = useMotionValue(0)
-    const dragRotate = useTransform(dragX, [-200, 0, 200], [-14, 0, 14])
+    const dragRotate = useTransform(dragX, [-200, 0, 200], [-12, 0, 12])
 
     const total = items.length
     const busyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-    // Trigger haptic feedback if supported on mobile devices
+    // Trigger subtle haptic feedback if supported on mobile devices
     const triggerHaptic = useCallback(() => {
       try {
         if (typeof window !== 'undefined' && 'vibrate' in navigator) {
-          navigator.vibrate(12)
+          navigator.vibrate(10)
         }
       } catch {
-        // Ignore fallback
+        // Fallback safely
       }
     }, [])
 
-    // Smooth curved send-to-back animation
+    // Smooth forward transition: front card glides away, next card rises to front
     const triggerNext = useCallback(
       (direction = 1) => {
         if (isBusy || total <= 1) return
         setIsBusy(true)
         triggerHaptic()
 
-        // Reset drag motion value
         dragX.set(0)
 
         const currentItem = items[currentIndex]
         const nextIndex = (currentIndex + 1) % total
 
-        setAnimatingCard({
+        // Set exiting card to smoothly fly off and fade out
+        setExitingCard({
           item: currentItem,
           direction,
-          type: 'sendToBack',
         })
 
-        // Advance index so new top card begins transitioning forward
+        // Advance index so background cards smoothly float forward simultaneously
         onIndexChange(nextIndex)
 
-        // Safety fallback timeout to prevent deadlock
         if (busyTimeoutRef.current) clearTimeout(busyTimeoutRef.current)
         busyTimeoutRef.current = setTimeout(() => {
-          setAnimatingCard(null)
+          setExitingCard(null)
           setIsBusy(false)
-        }, 650)
+        }, Math.round(TRANSITION_DURATION * 1000 + 40))
       },
       [isBusy, total, currentIndex, items, onIndexChange, dragX, triggerHaptic]
     )
 
-    // Bring previous photo from back to front
+    // Smooth backward transition: previous card glides in from the side
     const triggerPrev = useCallback(() => {
       if (isBusy || total <= 1) return
       setIsBusy(true)
@@ -142,19 +149,18 @@ export const StackedPhotoCarousel = forwardRef<StackedPhotoCarouselRef, StackedP
       const prevIndex = (currentIndex - 1 + total) % total
       const prevItem = items[prevIndex]
 
-      setAnimatingCard({
+      setIncomingCard({
         item: prevItem,
         direction: -1,
-        type: 'bringToFront',
       })
 
       onIndexChange(prevIndex)
 
       if (busyTimeoutRef.current) clearTimeout(busyTimeoutRef.current)
       busyTimeoutRef.current = setTimeout(() => {
-        setAnimatingCard(null)
+        setIncomingCard(null)
         setIsBusy(false)
-      }, 650)
+      }, Math.round(TRANSITION_DURATION * 1000 + 40))
     }, [isBusy, total, currentIndex, items, onIndexChange, dragX, triggerHaptic])
 
     useImperativeHandle(
@@ -166,13 +172,13 @@ export const StackedPhotoCarousel = forwardRef<StackedPhotoCarouselRef, StackedP
       [triggerNext, triggerPrev]
     )
 
-    // Handle end of gesture or tap
+    // Gesture swipe handler on front card
     const handleDragEnd = (
       _: MouseEvent | TouchEvent | PointerEvent,
       info: { offset: { x: number; y: number }; velocity: { x: number; y: number } }
     ) => {
-      const swipeThreshold = 55
-      const velocityThreshold = 350
+      const swipeThreshold = 50
+      const velocityThreshold = 300
 
       if (info.offset.x > swipeThreshold || info.velocity.x > velocityThreshold) {
         triggerNext(1) // Swiped right
@@ -185,12 +191,6 @@ export const StackedPhotoCarousel = forwardRef<StackedPhotoCarouselRef, StackedP
       if (!isBusy) {
         triggerNext(1)
       }
-    }
-
-    const handleAnimationEnd = () => {
-      if (busyTimeoutRef.current) clearTimeout(busyTimeoutRef.current)
-      setAnimatingCard(null)
-      setIsBusy(false)
     }
 
     // Visible stack slots: offset 0 (front), 1 (second), 2 (third)
@@ -221,7 +221,7 @@ export const StackedPhotoCarousel = forwardRef<StackedPhotoCarouselRef, StackedP
                 style={{
                   boxShadow: config.shadow,
                   filter: config.filter,
-                  touchAction: 'pan-y', // Permits vertical scrolling while catching horizontal swipes
+                  touchAction: 'pan-y', // Permits vertical page scrolling while capturing horizontal swipes
                   ...(isTopCard ? { x: dragX, rotate: dragRotate } : {}),
                 }}
                 animate={{
@@ -233,14 +233,12 @@ export const StackedPhotoCarousel = forwardRef<StackedPhotoCarouselRef, StackedP
                   opacity: config.opacity,
                 }}
                 transition={{
-                  type: 'spring',
-                  stiffness: 280,
-                  damping: 26,
-                  mass: 0.85,
+                  duration: TRANSITION_DURATION,
+                  ease: FLUID_EASE,
                 }}
                 drag={isTopCard ? 'x' : false}
                 dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.65}
+                dragElastic={0.7}
                 onDragEnd={isTopCard ? handleDragEnd : undefined}
                 onClick={isTopCard ? handleCardTap : undefined}
                 whileTap={isTopCard && !isBusy ? { scale: 0.985 } : undefined}
@@ -304,51 +302,48 @@ export const StackedPhotoCarousel = forwardRef<StackedPhotoCarouselRef, StackedP
           })}
 
           {/* ======================================================== */}
-          {/* Smooth Send-to-Back Outward Curved Animated Card */}
+          {/* Smooth Exiting Card: Gracefully sweeps out and fades to 0 */}
           {/* ======================================================== */}
-          {animatingCard && animatingCard.type === 'sendToBack' && (
+          {exitingCard && (
             <motion.div
-              key={`animating-exit-${animatingCard.item.id}`}
+              key={`exiting-${exitingCard.item.id}`}
               className="absolute inset-x-0 mx-auto w-full h-[470px] rounded-[28px] overflow-hidden border-2 border-[#48a6a7] bg-[#ddf3ee] pointer-events-none"
               initial={{
                 x: 0,
                 y: 0,
                 rotate: 0,
                 scale: 1,
-                zIndex: 45,
+                zIndex: 35,
                 opacity: 1,
               }}
               animate={{
-                // Curved diagonal flight path swinging out, then tucking behind the stack
-                x: [0, 200 * animatingCard.direction, 100 * animatingCard.direction, -6],
-                y: [0, -30, -16, -26],
-                rotate: [0, 13 * animatingCard.direction, 4 * animatingCard.direction, -3.5],
-                scale: [1, 1.02, 0.94, 0.88],
-                zIndex: [45, 45, 8, 8],
-                opacity: [1, 1, 0.92, 0.75],
+                x: exitingCard.direction * 310,
+                y: -10,
+                rotate: exitingCard.direction * 11,
+                scale: 0.94,
+                zIndex: 35,
+                opacity: 0,
               }}
               transition={{
-                duration: 0.52,
-                times: [0, 0.38, 0.72, 1],
-                ease: [0.22, 1, 0.36, 1],
+                duration: TRANSITION_DURATION,
+                ease: FLUID_EASE,
               }}
-              onAnimationComplete={handleAnimationEnd}
               style={{
                 boxShadow:
-                  '0 24px 45px -10px rgba(26, 90, 129, 0.35), 0 12px 22px -6px rgba(0, 0, 0, 0.2)',
+                  '0 20px 35px -10px rgba(26, 90, 129, 0.32), 0 10px 18px -6px rgba(0, 0, 0, 0.16)',
               }}
             >
               <img
-                src={animatingCard.item.image}
-                alt={animatingCard.item.title}
+                src={exitingCard.item.image}
+                alt={exitingCard.item.title}
                 draggable={false}
                 className="w-full h-full object-cover pointer-events-none select-none"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-white/20" />
 
-              {animatingCard.item.badge && (
+              {exitingCard.item.badge && (
                 <div className="absolute top-5 right-5 bg-[#48a6a7]/90 backdrop-blur-md border border-white/60 text-white text-xs font-semibold px-3.5 py-1.5 rounded-full shadow-md z-10">
-                  {animatingCard.item.badge}
+                  {exitingCard.item.badge}
                 </div>
               )}
 
@@ -356,14 +351,12 @@ export const StackedPhotoCarousel = forwardRef<StackedPhotoCarouselRef, StackedP
                 dir="rtl"
                 className="absolute inset-x-0 bottom-0 h-[200px] bg-gradient-to-t from-[#0e3b52]/95 via-[#1a5a81]/85 via-45% to-transparent flex flex-col justify-end p-5 sm:p-6 text-right"
               >
-                <div className="flex items-center justify-between mb-1.5 gap-2">
-                  <h3 className="text-lg sm:text-[21px] font-bold text-white drop-shadow-md">
-                    {animatingCard.item.title}
-                  </h3>
-                </div>
-                {animatingCard.item.description && (
+                <h3 className="text-lg sm:text-[21px] font-bold text-white drop-shadow-md mb-1.5">
+                  {exitingCard.item.title}
+                </h3>
+                {exitingCard.item.description && (
                   <p className="text-xs sm:text-[13px] font-medium text-white/90 leading-relaxed drop-shadow-sm line-clamp-3">
-                    {animatingCard.item.description}
+                    {exitingCard.item.description}
                   </p>
                 )}
               </div>
@@ -371,50 +364,48 @@ export const StackedPhotoCarousel = forwardRef<StackedPhotoCarouselRef, StackedP
           )}
 
           {/* ======================================================== */}
-          {/* Smooth Bring-to-Front Curved Animated Card (for Prev action) */}
+          {/* Smooth Incoming Card: Gracefully sweeps in when going Prev */}
           {/* ======================================================== */}
-          {animatingCard && animatingCard.type === 'bringToFront' && (
+          {incomingCard && (
             <motion.div
-              key={`animating-enter-${animatingCard.item.id}`}
+              key={`incoming-${incomingCard.item.id}`}
               className="absolute inset-x-0 mx-auto w-full h-[470px] rounded-[28px] overflow-hidden border-2 border-[#48a6a7] bg-[#ddf3ee] pointer-events-none"
               initial={{
-                x: -190,
-                y: -28,
-                rotate: -12,
-                scale: 0.88,
-                zIndex: 8,
-                opacity: 0.7,
+                x: -310,
+                y: -10,
+                rotate: -11,
+                scale: 0.94,
+                zIndex: 35,
+                opacity: 0,
               }}
               animate={{
-                x: [-190, -80, 0],
-                y: [-28, -12, 0],
-                rotate: [-12, -3, 0],
-                scale: [0.88, 1.02, 1],
-                zIndex: [8, 45, 45],
-                opacity: [0.75, 1, 1],
+                x: 0,
+                y: 0,
+                rotate: 0,
+                scale: 1,
+                zIndex: 35,
+                opacity: 1,
               }}
               transition={{
-                duration: 0.52,
-                times: [0, 0.45, 1],
-                ease: [0.22, 1, 0.36, 1],
+                duration: TRANSITION_DURATION,
+                ease: FLUID_EASE,
               }}
-              onAnimationComplete={handleAnimationEnd}
               style={{
                 boxShadow:
-                  '0 24px 45px -10px rgba(26, 90, 129, 0.35), 0 12px 22px -6px rgba(0, 0, 0, 0.2)',
+                  '0 20px 35px -10px rgba(26, 90, 129, 0.32), 0 10px 18px -6px rgba(0, 0, 0, 0.16)',
               }}
             >
               <img
-                src={animatingCard.item.image}
-                alt={animatingCard.item.title}
+                src={incomingCard.item.image}
+                alt={incomingCard.item.title}
                 draggable={false}
                 className="w-full h-full object-cover pointer-events-none select-none"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-white/20" />
 
-              {animatingCard.item.badge && (
+              {incomingCard.item.badge && (
                 <div className="absolute top-5 right-5 bg-[#48a6a7]/90 backdrop-blur-md border border-white/60 text-white text-xs font-semibold px-3.5 py-1.5 rounded-full shadow-md z-10">
-                  {animatingCard.item.badge}
+                  {incomingCard.item.badge}
                 </div>
               )}
 
@@ -422,14 +413,12 @@ export const StackedPhotoCarousel = forwardRef<StackedPhotoCarouselRef, StackedP
                 dir="rtl"
                 className="absolute inset-x-0 bottom-0 h-[200px] bg-gradient-to-t from-[#0e3b52]/95 via-[#1a5a81]/85 via-45% to-transparent flex flex-col justify-end p-5 sm:p-6 text-right"
               >
-                <div className="flex items-center justify-between mb-1.5 gap-2">
-                  <h3 className="text-lg sm:text-[21px] font-bold text-white drop-shadow-md">
-                    {animatingCard.item.title}
-                  </h3>
-                </div>
-                {animatingCard.item.description && (
+                <h3 className="text-lg sm:text-[21px] font-bold text-white drop-shadow-md mb-1.5">
+                  {incomingCard.item.title}
+                </h3>
+                {incomingCard.item.description && (
                   <p className="text-xs sm:text-[13px] font-medium text-white/90 leading-relaxed drop-shadow-sm line-clamp-3">
-                    {animatingCard.item.description}
+                    {incomingCard.item.description}
                   </p>
                 )}
               </div>
