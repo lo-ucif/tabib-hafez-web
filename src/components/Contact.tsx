@@ -59,6 +59,15 @@ export const Contact: React.FC = () => {
     setLoading(true);
 
     try {
+      const enteredSubject = formData.subject.trim();
+      const subjectTitle = enteredSubject || "رسالة جديدة من موقع الطبيب الحافظ";
+
+      // Prepend subject to message so it is guaranteed to show in the email body
+      // even if the EmailJS template doesn't explicitly have a {{subject}} variable in its content
+      const formattedMessage = enteredSubject
+        ? `الموضوع: ${enteredSubject}\n\n${formData.message.trim()}`
+        : formData.message.trim();
+
       const templateParams = {
         name: formData.name.trim(),
         from_name: formData.name.trim(),
@@ -67,8 +76,14 @@ export const Contact: React.FC = () => {
         from_email: formData.email.trim(),
         user_email: formData.email.trim(),
         reply_to: formData.email.trim(),
-        subject: formData.subject.trim() || "رسالة جديدة من موقع الطبيب الحافظ",
-        message: formData.message.trim(),
+        subject: subjectTitle,
+        title: subjectTitle,
+        email_title: subjectTitle,
+        user_subject: subjectTitle,
+        subject_title: subjectTitle,
+        message: formattedMessage,
+        content: formattedMessage,
+        raw_message: formData.message.trim(),
       };
 
       await emailjs.send(
