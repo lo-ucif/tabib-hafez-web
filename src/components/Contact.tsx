@@ -72,40 +72,20 @@ export const Contact: React.FC = () => {
         hour: "2-digit",
         minute: "2-digit",
       });
-      const numericDate = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, "0")}/${String(now.getDate()).padStart(2, "0")} ${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
-      const sendDateTime = `${dateFormatted} (${timeFormatted})`;
+      const formattedTime = `${dateFormatted} - ${timeFormatted}`;
 
-      // Header lines prepended to message so subject and date are always visible in inbox
-      const headerParts: string[] = [];
-      if (enteredSubject) {
-        headerParts.push(`الموضوع: ${enteredSubject}`);
-      }
-      headerParts.push(`تاريخ ووقت الإرسال: ${sendDateTime}`);
-
-      const formattedMessage = `${headerParts.join("\n")}\n\n------------------------\n${formData.message.trim()}`;
-
+      // Exactly matches the EmailJS template variables: {{name}}, {{email}}, {{time}}, {{title}}, {{message}}
       const templateParams = {
         name: formData.name.trim(),
         from_name: formData.name.trim(),
-        user_name: formData.name.trim(),
         email: formData.email.trim(),
         from_email: formData.email.trim(),
-        user_email: formData.email.trim(),
         reply_to: formData.email.trim(),
-        subject: subjectTitle,
         title: subjectTitle,
-        email_title: subjectTitle,
-        user_subject: subjectTitle,
-        subject_title: subjectTitle,
-        date: sendDateTime,
-        time: timeFormatted,
-        send_date: sendDateTime,
-        sent_at: sendDateTime,
-        created_at: sendDateTime,
-        timestamp: numericDate,
-        message: formattedMessage,
-        content: formattedMessage,
-        raw_message: formData.message.trim(),
+        subject: subjectTitle,
+        time: formattedTime,
+        date: formattedTime,
+        message: formData.message.trim(),
       };
 
       await emailjs.send(
