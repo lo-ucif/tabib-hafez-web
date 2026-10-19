@@ -246,7 +246,7 @@ export const Contact: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={defaultViewport}
             transition={{ duration: 0.65, ease: premiumEase }}
-            className="w-full lg:w-[45%] text-center lg:text-right space-y-4 sm:space-y-6 order-2 lg:order-1 pt-2 lg:pt-0"
+            className="w-full lg:w-[45%] text-center lg:text-right space-y-4 sm:space-y-6 order-1 pt-2 lg:pt-0"
           >
             <h3 className="text-lg sm:text-3xl lg:text-[32px] font-medium text-black/75 leading-[1.6]">
               هل لديك سؤال عن التسجيل أو الحلقات أو التطبيق؟ اكتب لنا وسيردّ
@@ -255,7 +255,8 @@ export const Contact: React.FC = () => {
             {/* <p className="text-sm sm:text-xl text-[#1a5a81] leading-relaxed">
               اكتب لنا وسيردّ عليك فريق المشروع في أقرب وقت.
             </p> */}
-            <div className="p-4 sm:p-6 bg-[#ddf3ee]/60 border border-[#48a6a7]/30 rounded-2xl space-y-1.5 text-xs sm:text-sm text-[#1a5a81]">
+            {/* University info badge (Desktop only inside this container) */}
+            <div className="hidden lg:block p-4 sm:p-6 bg-[#ddf3ee]/60 border border-[#48a6a7]/30 rounded-2xl space-y-1.5 text-xs sm:text-sm text-[#1a5a81]">
               <p className="font-semibold text-sm sm:text-base">
                 جامعة قسنطينة 3 - كلية الطب
               </p>
@@ -269,7 +270,7 @@ export const Contact: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={defaultViewport}
             transition={{ duration: 0.65, delay: 0.1, ease: premiumEase }}
-            className="w-full lg:w-[55%] max-w-[580px] order-1 lg:order-2"
+            className="w-full lg:w-[55%] max-w-[580px] order-2"
           >
             <div className="bg-white rounded-[20px] sm:rounded-[30px] p-5 sm:p-10 shadow-[0px_0px_35px_rgba(0,0,0,0.06)] border border-slate-100">
               <form
@@ -414,6 +415,20 @@ export const Contact: React.FC = () => {
                 </div>
               </form>
             </div>
+          </motion.div>
+
+          {/* 3rd Item (Mobile & Tablet): University & Club Info Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={defaultViewport}
+            transition={{ duration: 0.5, ease: premiumEase }}
+            className="block lg:hidden w-full max-w-[580px] p-4 sm:p-5 bg-[#ddf3ee]/60 border border-[#48a6a7]/30 rounded-2xl space-y-1 text-center text-xs sm:text-sm text-[#1a5a81] order-3"
+          >
+            <p className="font-semibold text-sm sm:text-base">
+              جامعة قسنطينة 3 - كلية الطب
+            </p>
+            <p>مشروع الطبيب الحافظ | نادي شفاء العلمي</p>
           </motion.div>
         </div>
       </div>
