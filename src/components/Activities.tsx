@@ -16,45 +16,45 @@ export const Activities: React.FC = () => {
   const items = [
     {
       id: 1,
-      title: 'حلقات الحفظ والمراجعة',
-      description: 'جلسات أسبوعية لتثبيت المحفوظ بين الطلبة وتصحيح التلاوة بأحكام التجويد والإتقان.',
-      image: assets.imgQuran1,
-      badge: 'قرآن وتجويد',
+      title: 'مسابقة الصفوة لحفظ القرآن الكريم',
+      description: 'منافسة قرآنية جهوية في الستين حزبًا وأجزائه بحضور مشايخ، مع تكريم الفائزين بجوائز قيّمة ورحلات عمرة تشجيعًا للإتقان.',
+      image: assets.eventQuranSafwa,
+      badge: 'مسابقة قرآنية',
     },
     {
       id: 2,
-      title: 'ورشات طبية تطبيقية',
-      description: 'مهارات سريرية وتدريبات عملية على الإسعافات الأولية يقدمها طلبة وأطباء ممارسون.',
-      image: assets.imgMedicine1,
-      badge: 'طب وسريريات',
+      title: 'حملة الفحوصات الطبية الدورية',
+      description: 'يوم تحسيسي بمركز إيلاف التجاري بقسنطينة شمل فحوصات مجانية لضغط الدم والسكر والوزن مع إرشادات وقائية للزوار.',
+      image: assets.eventHealthCheckup,
+      badge: 'توعية وفحص',
     },
     {
       id: 3,
-      title: 'لقاءات وتكريمات سنوية',
-      description: 'احتفاء دوري بالحافظين والمتميزين في ختام كل محطة ومسابقة قرآنية جامعية.',
-      image: assets.imgImageOfTheDay1,
-      badge: 'تكريم وتميز',
+      title: 'نشاط ترفيهي للأطفال الأيتام',
+      description: 'خرجة بحديقة باردو قسنطينة جمعت بين المسابقات الترفيهية والإرشادات الصحية لرسم البسمة على وجوه الأطفال الأيتام.',
+      image: assets.eventOrphansBardo,
+      badge: 'فرحة وتطوع',
     },
     {
       id: 4,
-      title: 'قوافل طبية تطوعية',
-      description: 'فحوصات مجانية واستشارات صحية ميدانية يقدمها طلبة وأطباء النادي لخدمة المجتمع.',
-      image: '/activities/caravan.webp',
-      badge: 'تطوع وإحسان',
+      title: 'حملة التوعية بمخاطر المخدرات',
+      description: 'يوم تحسيسي بثانوية براهامي قسنطينة للتوعية بأضرار الإدمان الصحية والاجتماعية بمشاركة طبيبة مختصة وأستاذ محاضر.',
+      image: assets.eventAntiDrugs,
+      badge: 'وقاية وتوعية',
     },
     {
       id: 5,
-      title: 'مسابقات قرآنية رمضانية',
-      description: 'منافسات سنوية في حفظ وترتيل القرآن الكريم بين طلبة الكليات الطبية بأجواء إيمانية.',
-      image: '/activities/competition.webp',
-      badge: 'مسابقات وتنافس',
+      title: 'افتتاح الدفعة الجديدة للمشروع',
+      description: 'حفل رمضاني بكلية الطب شمل التعريف بالدفعة ومحاضرات توجيهية للبروفيسور لبنى بشير والشيخ نسيم بوعافية ومعرض خط عربي.',
+      image: assets.eventBatchOpening,
+      badge: 'انطلاقة وتميز',
     },
     {
       id: 6,
-      title: 'ندوات فكرية وتزكية',
-      description: 'محاضرات تجمع بين أخلاقيات الطبيب المسلم وعلوم الشريعة والتزكية الإيمانية.',
-      image: '/activities/seminar.webp',
-      badge: 'فكر وتزكية',
+      title: 'دورة تدريبية في الخياطة الجراحية',
+      description: 'ورشة تطبيقية لطلبة المشروع بإشراف الدكتورة هند بوعشبة، للتدريب العملي على أساسيات الخياطة الجراحية والمهارات السريرية.',
+      image: assets.eventSurgicalSuture,
+      badge: 'ورشة سريرية',
     },
   ]
 
@@ -168,8 +168,8 @@ export const Activities: React.FC = () => {
               </div>
 
               {/* Frosted Teal Gradient Overlay at Bottom */}
-              <div className="absolute inset-x-0 bottom-0 h-[190px] bg-gradient-to-t from-[#1a5a81]/95 via-[#48a6a7]/80 to-transparent flex flex-col justify-end p-6 text-right">
-                <h3 className="text-xl sm:text-[22px] font-bold text-white mb-2 drop-shadow-md">
+              <div className="absolute inset-x-0 bottom-0 min-h-[195px] bg-gradient-to-t from-[#0e3b52]/95 via-[#1a5a81]/85 via-45% to-transparent flex flex-col justify-end p-5 sm:p-6 text-right">
+                <h3 className="text-lg sm:text-[21px] font-bold text-white mb-2 drop-shadow-md leading-snug">
                   {item.title}
                 </h3>
                 <p className="text-xs sm:text-[13px] font-medium text-white/90 leading-relaxed drop-shadow-sm">

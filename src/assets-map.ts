@@ -2,9 +2,6 @@ export const assets = {
   imgCover2RemovebgPreview2: "/figma-assets/d79e1ae3f3cf1b3800db31603b6a22613bef02b6.webp",
   imgFrame10000091311: "/figma-assets/394ea93dd1189442366262a37219fcb51be7ac50.webp",
   imgSection3: "/figma-assets/1fd77a4a9f1101877492b9136a8a19eeb77d3b48.webp",
-  imgQuran1: "/figma-assets/d6e9a06967443ce64bfc07e0e80522a88762b360.webp",
-  imgMedicine1: "/figma-assets/f01d75b03a123c2c8abc1ada225e4a4dae7f2f70.webp",
-  imgImageOfTheDay1: "/figma-assets/e4b308e5717a6e308bd65c08210eddf202338500.webp",
   imgFreeTransparentIPhone17MockupMockuuupsStudio: "/figma-assets/ff731d2b589e8a7ece82adb555a055351bac0b32.webp",
   imgFreeTransparentIPhone17MockupMockuuupsStudio1: "/figma-assets/47adb636aac9778f84f7f68d880cd2b7afdbf41c.webp",
   imgCover2RemovebgPreview3: "/figma-assets/0f733ffd85bd593635f057370376c1838151997c.webp",
@@ -24,4 +21,11 @@ export const assets = {
   imgFrame1000009141: "/figma-assets/da167b117cd7101ead1185c06073fde8a3450d91.svg",
   imgShifaaClubImage: "/shifaa-club-logo.webp",
   hafezLogo: "/hafez-logo.png",
+  eventQuranSafwa: "/activities/quran-safwa.webp",
+  eventHealthCheckup: "/activities/health-checkup.webp",
+  eventOrphansBardo: "/activities/orphans-bardo.webp",
+  eventAntiDrugs: "/activities/anti-drugs-campaign.webp",
+  eventBatchOpening: "/activities/batch-opening.webp",
+  eventSurgicalSuture: "/activities/surgical-suture.webp",
 }
+
